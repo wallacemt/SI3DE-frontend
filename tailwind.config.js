@@ -20,7 +20,9 @@ export default {
       colors: {
         principal: "#2a3240",
         secundaria: "#88005b",
-        DarkP1: "#E1BFD6",
+        secundariaP2: "#6A1B9A",
+        DarkP: "#F2F8EF",
+        DarkP2: "#DCD6D1",
         DarkP2: "#DCD6D1",
         DarkA1: "#CACCC4",
         DarkA2: "#666F7D",
