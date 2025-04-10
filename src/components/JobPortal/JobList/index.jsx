@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaPaperPlane, FaInfoCircle } from "react-icons/fa";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const mockVagas = [
   {
@@ -26,20 +28,77 @@ const mockVagas = [
       "Matérias: Banco de Dados, Estatística",
     ],
   },
+  {
+    id: 3,
+    titulo: "Engenheiro de Software",
+    empresa: "Softtech Inc.",
+    local: "Remoto",
+    requisitos: [
+      "Java ou Python",
+      "Conhecimento em padr es de codificação",
+      "CRA mínimo: 8.0",
+      "Matérias: Engenharia de Software, Programação Orientada a Objetos",
+    ],
+  },
+  {
+    id: 4,
+    titulo: "Desenvolvedor Mobile",
+    empresa: "Mobile Solutions",
+    local: "Remoto",
+    requisitos: [
+      "Java, Swift ou Kotlin",
+      "Conhecimento em desenvolvimento mobile",
+      "CRA mínimo: 8.0",
+      "Matérias: Desenvolvimento de Software, Programação Mobile",
+    ],
+  },
+  {
+    id: 5,
+    titulo: "Desenvolvedor de Jogos",
+    empresa: "GameDev Studio",
+    local: "Salvador, BA",
+    requisitos: [
+      "Java, C# ou C++",
+      "Conhecimento em desenvolvimento de jogos",
+      "CRA mínimo: 7.0",
+      "Matérias: Programação de Jogos, Desenvolvimento de Software",
+    ],
+  },
+  {
+    id: 6,
+    titulo: "Gerente de TI",
+    empresa: "TechSupport Inc.",
+    local: "Salvador, BA",
+    requisitos: [
+      "Experiência em gerenciamento de equipes",
+      "Conhecimento em segurança de redes",
+      "CRA mínimo: 8.0",
+      "Matérias: Administração de Redes, Segurança de Redes",
+    ],
+  },
 ];
 
+
 export const JobList = () => {
+  useEffect(() => {
+    Aos.init({
+      duration: 2000,
+      easing: "ease-in-out",
+    });
+  }, [])
   return (
-    <div className="flex flex-col items-center px-4 py-10 min-h-screen bg-gray-50 dark:bg-neutral-900 transition-colors">
-      <h1 className="text-2xl md:text-3xl font-bold text-center mb-6 text-secundaria">
+    <div className="flex flex-col h-full w-full items-center px-4 py-10 bg-DarkP dark:bg-neutral-900 transition-colors">
+     
+      <h1 className="text-2xl md:text-4xl font-bold text-center mb-6 text-secundaria absolute top-4">
         Portal de Estágios
       </h1>
 
-      <div className="w-full max-w-5xl space-y-6">
+      <div className="lg:w-1/2 space-y-6">
         {mockVagas.map((vaga) => (
           <div
             key={vaga.id}
-            className="bg-white dark:bg-neutral-800 rounded-lg shadow-md p-6 transition hover:shadow-lg border border-neutral90/70 dark:border-neutral10 " 
+            className="bg-white dark:bg-neutral-800 rounded-lg shadow-md p-6 transition hover:shadow-lg border border-neutral90/70 dark:border-neutral10"
+            data-aos="fade-up"
           >
             <div className="border-b border-gray-200 dark:border-neutral-700 pb-3 mb-4">
               <h2 className="text-xl font-semibold text-primary dark:text-purple-300">{vaga.titulo}</h2>
@@ -58,7 +117,7 @@ export const JobList = () => {
             </div>
 
             <div className="flex gap-4">
-              <button className="bg-primary text-white font-medium px-4 py-2 rounded hover:bg-purple-800 transition flex items-center gap-2">
+              <button className="bg-primary80 text-white font-medium px-4 py-2 rounded hover:bg-purple-800 transition flex items-center gap-2">
                 <FaPaperPlane />
                 Candidatar-se
               </button>

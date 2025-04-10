@@ -27,39 +27,37 @@ export const SidebarProfile = () => {
     <>
       <button
         onClick={() => setOpen(!open)}
-        className="md:hidden fixed top-4 left-4 z-50 text-white bg-neutral-800 p-2 rounded-full shadow-lg"
+        className="xl:hidden fixed top-2 left-2 z-50 text-white bg-neutral-800 p-2 rounded-full shadow-lg"
       >
         {open ? <FaTimes size={24} /> : <FaBars size={24} />}
       </button>
       {open && <div onClick={() => setOpen(false)} className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden" />}
 
       <aside
-        className={`top-0 left-0 min-h-screen w-72 bg-white dark:bg-neutral90 border-r border-neutral90/50 dark:border-neutral-700 shadow-md z-40 transform transition-transform duration-300 ease-in-out
-        ${open ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:static md:block`}
-        style={{ position: "fixed" }}
+        className={`top-0 left-0 fixed lg:relative min-h-screen w-96 bg-white dark:bg-neutral90 border-r border-neutral90/50 dark:border-neutral-700 shadow-md z-40 transform transition-transform duration-300 ease-in-out
+        ${open ? "translate-x-0" : "-translate-x-full"} xl:translate-x-0`}
+          style={{position:"fixed"}}
       >
         <div className="p-6 flex flex-col justify-between h-full">
           <div className="space-y-6">
             {/* Logo */}
-            <div className="flex justify-between items-center mb-4">
-              <img src="/logo.svg" alt="Logo Wyden" className="w-32 object-contain" />
-
-              {/* Botão de Dark Mode */}
-              <button
-                onClick={() => setDarkMode(!darkMode)}
-                className="text-xl text-gray-600 dark:text-gray-200 hover:text-purple-700 transition"
-              >
-                {darkMode ? <FaSun /> : <FaMoon />}
-              </button>
+            <div className="flex justify-center items-center mb-4">
+              <img src="https://res.cloudinary.com/dg9hqvlas/image/upload/v1744306739/logo_dhl8vb.png" alt="Logo Wyden" className="w-24 border-b border-neutral90/60 dark:border-neutral10/60  object-contain mx-auto" />
             </div>
 
             {/* Perfil */}
-            <div className="flex flex-col items-center space-x-4">
+            <div className="flex items-center space-x-4 relative">
               <FaUserCircle className="text-8xl text-secundariaP2"/>
               <div>
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white">{mockUser.name}</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">Matrícula: {mockUser.matricula}</p>
               </div>
+              <button
+                onClick={() => setDarkMode(!darkMode)}
+                className=" absolute top-0 right-0 text-xl text-gray-600 dark:text-gray-200 hover:text-purple-700 transition"
+              >
+                {darkMode ? <FaSun /> : <FaMoon />}
+              </button>
             </div>
 
             {/* Curso */}

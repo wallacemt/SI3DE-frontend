@@ -1,12 +1,13 @@
-import { JobList } from "./JobList";
+import { JobPortal } from "../JobPortal";
+import { JobList } from "../JobPortal/JobList";
 import { SidebarProfile } from "./SideBarProfile";
 
 export const Dashboard = () => {
   return (
     <>
-      <div className="h-screen">
+      <div className="h-full flex">
         <SidebarProfile />
-        <JobList />
+        <JobPortal />
       </div>
     </>
   );
