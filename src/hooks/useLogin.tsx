@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { userLogin } from "@/api/authApi";
 import { useUserContext } from "./useUserContext";
+import { toast } from "sonner";
 
 const loginSchema = z.object({
   email: z.string().email("E-mail inválido"),
@@ -34,11 +35,10 @@ export const useLoginForm = () => {
         login(response.jwtToken, response.role);
       }
     } catch (error: any) {
-      setError(error.message);
+      toast.error(error.response.data.error);
     } finally {
       setLoading(false);
     }
   };
-  console.log(form.watch());
   return { form, loading, handleLogin, error };
 };
