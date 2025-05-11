@@ -1,8 +1,9 @@
 import type { LoginResponse } from "@/types/userTypes";
 import axios from "axios";
+import { baseURL } from "./api";
 
 const authAPI = axios.create({
-  baseURL: "http://127.0.0.1:5000/auth",
+  baseURL: `${baseURL}/auth`,
   withCredentials: true,
 });
 
