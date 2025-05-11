@@ -9,7 +9,6 @@ const authAPI = axios.create({
 export const userLogin = async (email: string, password: string): Promise<LoginResponse> => {
   try {
     const response = await authAPI.post<LoginResponse>("/login", { email, password });
-    console.log(response)
     return response.data;
   } catch (error: any) {
     console.error(error);

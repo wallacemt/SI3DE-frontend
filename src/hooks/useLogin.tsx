@@ -36,6 +36,7 @@ export const useLoginForm = () => {
       }
     } catch (error: any) {
       toast.error(error.response.data.error);
+      setError(error.response.data.error);
     } finally {
       setLoading(false);
     }

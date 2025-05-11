@@ -6,6 +6,19 @@ export interface LoginResponse {
   role: "student" | "teacher" | "admin";
 }
 
+interface UserProfile {
+  id: string;
+  craValue: number;
+  curso: string;
+  habilidades: string[];
+  interesses: string[];
+  linkedin: string;
+  numeroMateriasConcluidas: 28;
+  github: string;
+  portfolio: string | null;
+  user_id: string;
+}
+
 export interface UserData {
   acessAt: Date;
   email: string;
@@ -13,4 +26,5 @@ export interface UserData {
   isFullProfile: boolean;
   nome: string;
   role: string;
+  profle?: UserProfile;
 }

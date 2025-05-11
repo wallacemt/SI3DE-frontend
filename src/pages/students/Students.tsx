@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useUserContext } from "@/hooks/useUserContext";
 
 export const Students = () => {
-  const { logout } = useUserContext();
+  const { logout, user } = useUserContext();
   return (
     <>
       <div>
