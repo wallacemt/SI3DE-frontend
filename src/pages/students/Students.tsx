@@ -9,6 +9,9 @@ export const Students = () => {
       <div>
         Students
         <Button onClick={() => logout()}>Sair</Button>
+        <pre style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
+          {JSON.stringify(user, null, 2)}
+        </pre>
       </div>
       <ProfileFormModal />
     </>

@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 //@ts-ignore
@@ -13,6 +13,8 @@ import "aos/dist/aos.css";
 import { MdWorkspacePremium } from "react-icons/md";
 import { SiWorkplace } from "react-icons/si";
 import { BsSearch, BsSpeedometer } from "react-icons/bs";
+import { Skeleton } from "@/components/ui/skeleton";
+
 export const AuthBanner = ({ position = "right", effect = "fade-up" }) => {
   const apresentationMessages = [
     {
@@ -59,9 +61,17 @@ export const AuthBanner = ({ position = "right", effect = "fade-up" }) => {
     return () => clearInterval(interval);
   }, []);
 
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+  }, [currentImage]);
+
   useEffect(() => {
     Aos.init({ duration: 1000 });
   }, []);
+
+  console.log(loading)
 
   return (
     <div
@@ -69,13 +79,29 @@ export const AuthBanner = ({ position = "right", effect = "fade-up" }) => {
         position == "left" ? "left-0" : "right-0"
       }`}
     >
-      <div
-        className={`h-full bg-cover bg-center relative`}
-        style={{ backgroundImage: `url(${currentImage})`, transition: "all 1s ease-in-out" }}
-        data-aos={effect}
-      >
-        <div className="absolute bottom-0 w-full bg-black/60 h-[45%] p-6 ">
-          <div className="backdrop-blur-sm rounded-2xl bg-neutral10/20 p-2 ">
+      <div className="h-full w-full relative" data-aos={effect}>
+        {loading ? (
+          <Skeleton className="absolute z-6 inset-0 h-full w-full rounded-none object-cover object-center" />
+        ) : (
+          <img
+            src={currentImage}
+            onLoad={() => setLoading(false)}
+            className={`h-full w-full object-cover object-center absolute inset-0 transition-opacity duration-1000 ${
+              loading ? "opacity-0" : "opacity-100"
+            }`}
+            alt="Banner"
+          />
+        )}
+        <img
+          src={currentImage}
+          onLoad={() => setLoading(false)}
+          className={`h-full w-full object-cover object-center absolute inset-0 transition-opacity duration-1000 ${
+            loading ? "opacity-0" : "opacity-100"
+          }`}
+          alt="Banner"
+        />
+        <div className="absolute bottom-0 w-full bg-black/60 h-[45%] p-6 z-10">
+          <div className="backdrop-blur-sm rounded-2xl bg-neutral10/20 p-2">
             <Swiper
               spaceBetween={20}
               slidesPerView={1}
