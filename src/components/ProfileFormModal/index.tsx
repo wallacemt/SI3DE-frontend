@@ -26,9 +26,14 @@ export const ProfileFormModal = () => {
           e.preventDefault();
         }}
       >
-        <img src="/logo.svg" alt="Wyden Logo" className=" fixed top-[-0.3rem] left-[-1.2rem] w-32 mb-4 self-start" />
+          <img src="/logo.svg" alt="Wyden Logo" className=" fixed top-[-0.3rem] left-[-1.2rem] w-32 mb-4 self-start" />
         <DialogHeader>
-          <DialogTitle className="font-principal text-center font-normal text-4xl text-secundaria mt-12">
+          <img
+            src="https://res.cloudinary.com/dg9hqvlas/image/upload/v1744306739/logo_dhl8vb.png"
+            alt="Project Logo"
+            className="w-32 lg:w-44 self-center top-0 border-b border-gray-400 md:mt-40 mt-80"
+          />
+          <DialogTitle className="font-principal text-center font-normal text-4xl text-secundaria mt-4">
             Complete seu Perfil
           </DialogTitle>
           <DialogDescription className="text-sm text-center">
