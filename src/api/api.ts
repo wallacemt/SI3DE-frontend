@@ -1,5 +1,6 @@
 import Cookies from "js-cookie";
-export const baseURL = `${import.meta.env.VITE_API_URL}`;
+
+export const baseURL = import.meta.env.VITE_API_URL.replace(/\/+$/, '');
 export interface SimpleResponse {
   message: string;
 }
