@@ -70,9 +70,6 @@ export const AuthBanner = ({ position = "right", effect = "fade-up" }) => {
   useEffect(() => {
     Aos.init({ duration: 1000 });
   }, []);
-
-  console.log(loading)
-
   return (
     <div
       className={`absolute w-full lg:max-w-[50%] h-full overflow-hidden hidden lg:block ${
