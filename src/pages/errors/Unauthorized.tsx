@@ -1,23 +1,18 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router';
+import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { FaExclamationTriangle, FaHome } from "react-icons/fa";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { Link } from "react-router";
 
-export const  Unauthorized: React.FC = () => {
-  const navigate = useNavigate();
-
+export const Unauthorized: React.FC = () => {
   useEffect(() => {
     AOS.init({ duration: 600 });
   }, []);
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-gray-50">
-      <div
-        className="max-w-md w-full bg-white rounded-xl shadow-md overflow-hidden"
-        data-aos="fade-up"
-      >
+      <div className="max-w-md w-full bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up">
         <div className="p-8 text-center">
           <div className="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-red-100 mb-6">
             <FaExclamationTriangle className="text-red-500 text-3xl" />
@@ -33,13 +28,12 @@ export const  Unauthorized: React.FC = () => {
           </p>
 
           <div className="flex justify-center">
-            <Button
-              onClick={() => navigate("/")}
-              className="bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium py-3 px-6 rounded-lg inline-flex items-center hover:translate-y-[-2px] hover:shadow-lg transition-all cursor-pointer"
-            >
-              <FaHome className="mr-2" />
-              Voltar para o início
-            </Button>
+            <Link to="/">
+              <Button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium py-3 px-6 rounded-lg inline-flex items-center hover:translate-y-[-2px] hover:shadow-lg transition-all cursor-pointer">
+                <FaHome className="mr-2" />
+                Voltar para o início
+              </Button>
+            </Link>
           </div>
         </div>
 
@@ -52,4 +46,3 @@ export const  Unauthorized: React.FC = () => {
     </div>
   );
 };
-

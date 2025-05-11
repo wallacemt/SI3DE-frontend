@@ -40,10 +40,9 @@ export const UserProvider = ({ children }: any) => {
       }
       setUser(userData);
     } catch (error: any) {
-      if (error.status == 401) {
+      if (error.response.status === 401) {
         logout();
       }
-      throw error;
     } finally {
       setTimeout(() => {
         setLoading(false);
