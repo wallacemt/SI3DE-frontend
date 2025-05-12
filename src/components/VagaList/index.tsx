@@ -1,7 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { format } from "date-fns";
 import { Badge } from "@/components/ui/badge";
 import { FaPaperPlane } from "react-icons/fa";
 import { dataVagasMock } from "./dataVagasMock";

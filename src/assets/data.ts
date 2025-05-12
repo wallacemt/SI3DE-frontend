@@ -4,12 +4,9 @@ import {
     Settings2,
     BookOpen,
     FileText,
-    Users,
     ClipboardList,
-    Briefcase,
     MessageCircle,
     GraduationCap,
-    Bot,
   } from "lucide-react";
   
   export const data = {
