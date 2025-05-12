@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { FaPaperPlane } from "react-icons/fa";
-import { dataVagasMock } from "./dataVagasMock";
+import { dataVagasMock } from "../../assets/dataVagasMock";
 import { VagaDialog } from "../VagaDialog";
 
 export const VagasList = () => {

@@ -39,8 +39,7 @@ export const LoadingPage: React.FC = () => {
   return (
     <div className="bg-gray-50 min-h-screen flex items-center justify-center relative">
       <div className="relative z-10 max-w-md w-full bg-white rounded-xl shadow-2xl overflow-hidden" data-aos="zoom-in">
-        {/* Header */}
-        <div className="bg-DarkP px-6 py-4">
+        <div className="bg-neutral10 px-6 py-4">
           <div className="flex items-center justify-center space-x-3">
             <img
               src="https://res.cloudinary.com/dg9hqvlas/image/upload/v1744306739/logo_dhl8vb.png"

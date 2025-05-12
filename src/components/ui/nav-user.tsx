@@ -80,7 +80,8 @@ export function NavUser({
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
                   <AvatarImage
-                    src={"https://res.cloudinary.com/dg9hqvlas/image/upload/v1736533469/1_-_zBr1CQ3_gxvqyg.png"}
+                    src={"https://res.cloudinary.com/dg9hqvlas/image/upload/v1747017540/pngwing.com_idimby.png"}
+                    className={`${theme === "dark" ? "invert-75" : ""} p-1`}
                     alt={user.name}
                   />
                   <AvatarFallback className="rounded-lg">CN</AvatarFallback>

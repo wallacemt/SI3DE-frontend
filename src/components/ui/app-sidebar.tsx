@@ -13,6 +13,7 @@ import { useUserContext } from "@/hooks/useUserContext";
 import { Link } from "react-router";
 import { UserOverview } from "../UserOverview";
 import { data } from "@/assets/data";
+import { AdminOverview } from "../AdminOverview";
 
 export function AppSidebar({ sidebarType = "student", ...props }: React.ComponentProps<typeof Sidebar>) {
   const { user } = useUserContext();
@@ -32,8 +33,8 @@ export function AppSidebar({ sidebarType = "student", ...props }: React.Componen
         </Link>
       </SidebarHeader>
       <SidebarContent>
-        <UserOverview hide={!open} />
-        <NavMain items={ dataNav } />
+        {sidebarType === "student" ? <UserOverview hide={!open} /> : <AdminOverview hide={!open} />}
+        <NavMain items={dataNav} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={{ name: user?.nome!, email: user?.email! }} />

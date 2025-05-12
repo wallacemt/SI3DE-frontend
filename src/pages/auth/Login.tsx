@@ -113,8 +113,8 @@ export const Login = () => {
                 />
                 <Button
                   type="submit"
-                  className="bg-secundaria w-full text-white font-semibold py-6 px-6 rounded-md hover:bg-purple-800 transition disabled:opacity-80 cursor-pointer text-xl font-principal"
-                  disabled={loading}
+                  className="bg-secundaria w-full text-white font-semibold py-6 px-6 rounded-md hover:bg-purple-800 transition disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer text-xl font-principal"
+                  disabled={loading || !form.formState.isValid}
                 >
                   {loading ? <Loading spiner={<CircleSpinner size={30} color="#FF2F00" />} /> : "Entrar"}
                 </Button>

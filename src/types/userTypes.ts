@@ -13,7 +13,7 @@ interface UserProfile {
   habilidades: string[];
   interesses: string[];
   linkedin: string;
-  numeroMateriasConcluidas: 28;
+  numeroMateriasConcluidas: number;
   github: string;
   portfolio: string | null;
   user_id: string;
