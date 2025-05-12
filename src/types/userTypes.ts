@@ -26,5 +26,5 @@ export interface UserData {
   isFullProfile: boolean;
   nome: string;
   role: string;
-  profle?: UserProfile;
+  profile?: UserProfile;
 }

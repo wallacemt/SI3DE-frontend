@@ -41,6 +41,9 @@ export const usePerfilModal = () => {
   const onSubmit = async (values: z.infer<typeof perfilSchema>) => {
     setLoading(true);
     try {
+      if (!values.portfolio) {
+        values.portfolio = values.github;
+      }
       const response = await postUserProfile(values);
       if (response) {
         toast.success("Perfil atualizado com sucesso!");
