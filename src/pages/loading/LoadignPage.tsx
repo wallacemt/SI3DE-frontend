@@ -40,7 +40,7 @@ export const LoadingPage: React.FC = () => {
     <div className="bg-gray-50 min-h-screen flex items-center justify-center relative">
       <div className="relative z-10 max-w-md w-full bg-white rounded-xl shadow-2xl overflow-hidden" data-aos="zoom-in">
         {/* Header */}
-        <div className="bg-[#f2f8ef] px-6 py-4">
+        <div className="bg-DarkP px-6 py-4">
           <div className="flex items-center justify-center space-x-3">
             <img
               src="https://res.cloudinary.com/dg9hqvlas/image/upload/v1744306739/logo_dhl8vb.png"
@@ -49,8 +49,6 @@ export const LoadingPage: React.FC = () => {
             />
           </div>
         </div>
-
-        {/* Main Content */}
         <div className="px-8 py-4 text-center">
           <div className="relative mx-auto w-24 h-24 mb-8">
             <div className="absolute inset-0 rounded-full border-4 border-indigo-100 animate-spin-slow" />

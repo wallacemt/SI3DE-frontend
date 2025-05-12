@@ -1,17 +1,23 @@
 import * as React from "react";
 import { NavMain } from "@/components/ui/nav-main";
 import { NavUser } from "@/components/ui/nav-user";
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail, useSidebar } from "@/components/ui/sidebar";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarRail,
+  useSidebar,
+} from "@/components/ui/sidebar";
 import { useUserContext } from "@/hooks/useUserContext";
 import { Link } from "react-router";
 import { UserOverview } from "../UserOverview";
 import { data } from "@/assets/data";
 
-
-
 export function AppSidebar({ sidebarType = "student", ...props }: React.ComponentProps<typeof Sidebar>) {
   const { user } = useUserContext();
-  const {open} = useSidebar();
+  const { open } = useSidebar();
+  const dataNav = [...(sidebarType === "student" ? data.student : data.uniruy), ...data.navMain,];
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
@@ -27,7 +33,7 @@ export function AppSidebar({ sidebarType = "student", ...props }: React.Componen
       </SidebarHeader>
       <SidebarContent>
         <UserOverview hide={!open} />
-        <NavMain items={data.navMain}  />
+        <NavMain items={ dataNav } />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={{ name: user?.nome!, email: user?.email! }} />

@@ -1,12 +1,11 @@
-import { Button } from "@/components/ui/button";
-import { useUserContext } from "@/hooks/useUserContext";
+import { SideBar } from "@/components/SideBar";
 
 export const Uniruy = () => {
-  const { logout } = useUserContext();
   return (
     <div>
-      Uniruy
-      <Button onClick={() => logout()}>Sair</Button>
+      <SideBar>
+        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">Uniruy</div>
+      </SideBar>
     </div>
   );
 };

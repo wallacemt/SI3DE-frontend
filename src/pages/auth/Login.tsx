@@ -58,7 +58,7 @@ export const Login = () => {
                   name="email"
                   render={({ field }) => (
                     <FormItem className="relative">
-                      <FormLabel className="text-sm font-medium text-neutral-90/80 mb-1">E-mail</FormLabel>
+                      <FormLabel className="text-sm font-medium text-neutral90/80 mb-1">E-mail</FormLabel>
                       <span className="absolute left-0 top-[3.2rem] transform -translate-y-1/2 text-neutral90/70 border-r border-neutral-500 p-1">
                         <UserIcon size={20} />
                       </span>
@@ -71,7 +71,7 @@ export const Login = () => {
                             form.trigger(field.name);
                           }}
                           placeholder="Digite seu e-mail"
-                          className="pl-8 py-2 pr-4"
+                          className="pl-8 py-2 pr-4 text-neutral90"
                         />
                       </FormControl>
                       <FormMessage />
@@ -97,7 +97,7 @@ export const Login = () => {
                             form.trigger(field.name);
                           }}
                           placeholder="Digite sua senha"
-                          className="pl-8 py-2 pr-10"
+                          className="pl-8 py-2 pr-10 text-neutral90"
                         />
                       </FormControl>
                       <button
