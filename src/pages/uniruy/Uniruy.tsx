@@ -1,6 +1,7 @@
 import { SideBar } from "@/components/SideBar";
 import { StudentsList } from "@/components/StudentsList";
 import { useUserContext } from "@/hooks/useUserContext";
+import { StudentsCharts } from "../studentCharts";
 
 interface UniruyProps {
   page?: "home" | "graficos";
@@ -9,7 +10,7 @@ interface UniruyProps {
 export const Uniruy = ({ page = "home" }: UniruyProps) => {
   const pageComponents = {
     home: () => <StudentsList />,
-    graficos: () => <h1>Alunos</h1>,
+    graficos: () => <StudentsCharts />,
   };
   const { user } = useUserContext();
   console.log(user);

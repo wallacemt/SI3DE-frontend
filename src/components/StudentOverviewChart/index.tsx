@@ -34,7 +34,7 @@ const chartConfig = {
 } satisfies ChartConfig
 
 export function StudentsOverviewChart() {
-    const [expanded, setExpanded] = useState(false)
+    const [expanded, setExpanded] = useState(true)
 
     return (
         <div
@@ -58,7 +58,7 @@ export function StudentsOverviewChart() {
                     </Link>
                     <Button
                         size="sm"
-                        variant="ghost"
+                        variant="outline"
                         onClick={() => setExpanded(!expanded)}
                     >
                         {expanded ? "Ocultar" : "Expandir"}

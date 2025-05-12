@@ -6,6 +6,7 @@ import { Uniruy } from "./pages/uniruy/Uniruy";
 import { RoleBasedRoute } from "./roleBasedRoute";
 import { Unauthorized } from "./pages/errors/Unauthorized";
 import { LoadingPage } from "./pages/loading/LoadignPage";
+import { NotFoundPage } from "./pages/errors/404";
 
 export const AppRoutes = () => {
   const { user, loading } = useUserContext();
@@ -13,6 +14,7 @@ export const AppRoutes = () => {
   const privateRoutes = [
     { path: "/dashboard", element: <Students />, role: "student" },
     { path: "/uniruy/dashboard", element: <Uniruy />, role: "teacher" },
+    { path: "/uniruy/dashboard/graficos", element: <Uniruy page="graficos" />, role: "teacher" },
   ];
 
   if (loading) {
@@ -39,6 +41,9 @@ export const AppRoutes = () => {
       {privateRoutes.map(({ path, element, role }) => (
         <Route key={path} path={path} element={<RoleBasedRoute element={element} allowedRole={role} />} />
       ))}
+
+      <Route path="*" element={<NotFoundPage />} />
+      
     </Routes>
   );
 };

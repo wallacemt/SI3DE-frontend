@@ -39,12 +39,11 @@ export const data = {
   ],
   uniruy: [
     {
-      title: "Instituições",
-      url: "/instituicoes",
+      title: "Instituição",
+      url: "/instituição",
       icon: GraduationCap,
       items: [
-        { title: "Todas Instituições", url: "/instituicoes" },
-        { title: "Minhas Instituições", url: "/instituicoes/minhas" },
+        { title: "Graficos", url: "/uniruy/dashboard/graficos" },
       ],
     },
     {
