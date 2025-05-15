@@ -5,7 +5,7 @@ export const dataVagasMock: Vaga[] = [
   {
     id: "1",
     title: "Desenvolvedor Front-end Júnior",
-    subscriptions: 10,
+    subscriptions: 20,
     createdAt: "2025-04-28T14:00:00Z",
     publicationPlataform: "Gupy",
     description: "Vaga para estudante com conhecimentos em React, HTML, CSS e JavaScript.",

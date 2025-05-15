@@ -2,20 +2,22 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { FaPaperPlane } from "react-icons/fa";
-import { dataVagasMock } from "../../assets/dataVagasMock";
+import { dataVagasMock } from "@/assets/dataVagasMock";
 import { VagaDialog } from "../VagaDialog";
 
 export const VagasList = () => {
   return (
-    <div className="space-y-6">
+    <div className="space-y-8 px-12">
       <h2 className="text-2xl font-semibold tracking-tight">Vagas Disponíveis</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {dataVagasMock.map((vaga) => (
           <>
             <Card key={vaga.id} className="flex flex-col justify-between relative">
-              <Badge variant="default" className="absolute right-2">Inscritos: {vaga.subscriptions}</Badge>
+              <Badge variant="outline" className="absolute border right-2 border-secundaria">
+                Inscritos: {vaga.subscriptions}
+              </Badge>
               <CardHeader>
-                <CardTitle>{vaga.title}</CardTitle>
+                <CardTitle className="truncate max-w-[25ch] hover:">{vaga.title}</CardTitle>
                 <p className="text-sm text-muted-foreground">Empresa Exemplo</p>
               </CardHeader>
               <CardContent className="space-y-3">
