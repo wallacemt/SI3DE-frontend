@@ -9,16 +9,20 @@ export const VagasList = () => {
   return (
     <div className="space-y-8 px-12">
       <h2 className="text-2xl font-semibold tracking-tight">Vagas Disponíveis</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2  gap-6">
         {dataVagasMock.map((vaga) => (
           <>
             <Card key={vaga.id} className="flex flex-col justify-between relative">
-              <Badge variant="outline" className="absolute border right-2 border-secundaria">
-                Inscritos: {vaga.subscriptions}
-              </Badge>
               <CardHeader>
-                <CardTitle className="truncate max-w-[25ch] hover:">{vaga.title}</CardTitle>
-                <p className="text-sm text-muted-foreground">Empresa Exemplo</p>
+                <CardTitle className="truncate max-w-[25ch] hover:">
+                  {vaga.title}
+                </CardTitle>
+                <div className="flex gap-4">
+                  <p className="text-sm text-muted-foreground">Empresa Exemplo</p>
+                    <Badge variant="outline" className="text-destaque border flex items-center justify-center right-2 border-secundaria">
+                      Inscritos: {vaga.subscriptions}
+                    </Badge>
+                </div>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div>

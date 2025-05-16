@@ -163,6 +163,27 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-secundaria); 
+  border-radius: 10px;
+  border: 2px solid #f1f1f1;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #4f46e5;
+}
+
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -189,3 +210,4 @@
     animation: float 6s ease-in-out infinite;
   }
 }
+

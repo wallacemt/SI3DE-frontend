@@ -10,6 +10,7 @@ import { AuthBanner } from "@/components/Utils/AuthBanner";
 import { Loading } from "@/components/Utils/Loading";
 import { CircleSpinner } from "@/components/ui/circleSpin";
 import { useLoginForm } from "@/hooks/useLogin";
+import { ScrollArea } from "@radix-ui/react-scroll-area";
 
 export const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -28,14 +29,14 @@ export const Login = () => {
   };
 
   return (
-    <div className="h-screen bg-white/90 flex">
+    <div className="min-h-screen bg-white/90 flex flex-col lg:flex-row overflow-hidden">
       <div className="h-full">
         <AuthBanner />
       </div>
-      <div className="h-full w-full lg:w-[50%] relative lg:absolute lg:left-0 flex justify-center overflow-hidden">
+      <ScrollArea className="flex-1 lg:flex-none w-full lg:w-[50%] max-h-[90%] relative lg:absolute lg:left-0 flex justify-center overflow-x-hidden">
         <div className="flex flex-col items-center justify-between bg-white">
-          <img src="/logo.svg" alt="Wyden Logo" className="w-32 mb-4 self-start relative " />
-          <div className="flex flex-col items-start justify-center flex-1 w-full max-w-md relative md:bottom-[4.5vh] bottom-[10vh]">
+          <img src="/logo.svg" alt="Wyden Logo" className="w-32 mb-4 self-start absolute left-0 " />
+          <div className="flex flex-col items-start justify-center flex-1 w-full max-w-md relative md:bottom-[4.5vh] bottom-[10vh] in">
             <img
               src="https://res.cloudinary.com/dg9hqvlas/image/upload/v1744306739/logo_dhl8vb.png"
               alt="Project Logo"
@@ -120,9 +121,9 @@ export const Login = () => {
                 </Button>
               </form>
             </Form>
-          </div>
+          </div>  
 
-          <div className="w-full bg-[#dcd6d1] py-4 text-center text-sm md:text-lg text-neutral90/80 bg-DarkP1 font-secundaria absolute bottom-0">
+          <div className="w-screen bg-[#dcd6d1] text-center text-sm md:text-lg text-neutral90/80 bg-DarkP1 font-secundaria bottom-0">
             <span>Está com dúvidas para fazer o login?{" "}</span>
             <span className="font-semibold cursor-pointer underline hover:text-neutral90/100">Acessar Ajuda</span>
             <div className="w-full text-center text-xs text-neutral90/80">
@@ -133,7 +134,7 @@ export const Login = () => {
             </div>
           </div>
         </div>
-      </div>
+      </ScrollArea>
     </div>
   );
 };
