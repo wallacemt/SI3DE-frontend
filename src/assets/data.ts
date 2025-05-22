@@ -42,9 +42,7 @@ export const data = {
       title: "Instituição",
       url: "/instituição",
       icon: GraduationCap,
-      items: [
-        { title: "Graficos", url: "/uniruy/dashboard/graficos" },
-      ],
+      items: [{ title: "Graficos", url: "/uniruy/dashboard/graficos" }],
     },
     {
       title: "Administração",
@@ -65,7 +63,7 @@ export const data = {
       isActive: true,
       items: [
         { title: "Disponíveis", url: "/estagios/disponiveis" },
-        { title: "Favoritos", url: "/estagios/favoritos" },
+        { title: "Carreira", url: "/carreira" },
         { title: "Inscrições", url: "/estagios/inscricoes" },
         { title: "Histórico", url: "/estagios/historico" },
       ],

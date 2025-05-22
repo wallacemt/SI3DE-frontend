@@ -14,14 +14,15 @@ export const VagasList = () => {
           <>
             <Card key={vaga.id} className="flex flex-col justify-between relative">
               <CardHeader>
-                <CardTitle className="truncate max-w-[25ch] hover:">
-                  {vaga.title}
-                </CardTitle>
+                <CardTitle className="truncate max-w-[25ch] hover:">{vaga.title}</CardTitle>
                 <div className="flex gap-4">
                   <p className="text-sm text-muted-foreground">Empresa Exemplo</p>
-                    <Badge variant="outline" className="text-destaque border flex items-center justify-center right-2 border-secundaria">
-                      Inscritos: {vaga.subscriptions}
-                    </Badge>
+                  <Badge
+                    variant="outline"
+                    className="text-secundariaP2 border flex items-center justify-center right-2 border-secundaria"
+                  >
+                    Inscritos: {vaga.subscriptions}
+                  </Badge>
                 </div>
               </CardHeader>
               <CardContent className="space-y-3">

@@ -1,6 +1,5 @@
 import { SideBar } from "@/components/SideBar";
 import { StudentsList } from "@/components/StudentsList";
-import { useUserContext } from "@/hooks/useUserContext";
 import { StudentsCharts } from "../studentCharts";
 
 interface UniruyProps {
@@ -12,8 +11,6 @@ export const Uniruy = ({ page = "home" }: UniruyProps) => {
     home: () => <StudentsList />,
     graficos: () => <StudentsCharts />,
   };
-  const { user } = useUserContext();
-  console.log(user);
   return (
     <div>
       <SideBar type="teacher">{pageComponents[page]()}</SideBar>

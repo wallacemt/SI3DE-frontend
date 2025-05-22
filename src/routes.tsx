@@ -13,6 +13,7 @@ export const AppRoutes = () => {
 
   const privateRoutes = [
     { path: "/dashboard", element: <Students />, role: "student" },
+    { path: "/carreira", element: <Students page="carreiras" />, role: "student" },
     { path: "/uniruy/dashboard", element: <Uniruy />, role: "teacher" },
     { path: "/uniruy/dashboard/graficos", element: <Uniruy page="graficos" />, role: "teacher" },
   ];
@@ -43,7 +44,6 @@ export const AppRoutes = () => {
       ))}
 
       <Route path="*" element={<NotFoundPage />} />
-      
     </Routes>
   );
 };
