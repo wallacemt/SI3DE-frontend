@@ -11,7 +11,7 @@ const tips = [
   "Preparando recomendações personalizadas...",
 ];
 
-export const LoadingPage: React.FC = () => {
+const LoadingPage: React.FC = () => {
   const [progress, setProgress] = useState(0);
   const [tipIndex, setTipIndex] = useState(0);
 
@@ -156,3 +156,5 @@ export const LoadingPage: React.FC = () => {
     </div>
   );
 };
+
+export default LoadingPage;

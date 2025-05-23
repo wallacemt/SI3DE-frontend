@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router";
 import { ChevronLeft } from "lucide-react";
 
-export const NotFoundPage: React.FC = () => {
+const NotFoundPage: React.FC = () => {
   const [typedText, setTypedText] = useState("");
   const fullText = "Página não encontrada";
 
@@ -78,3 +78,5 @@ export const NotFoundPage: React.FC = () => {
     </div>
   );
 };
+
+export default NotFoundPage;

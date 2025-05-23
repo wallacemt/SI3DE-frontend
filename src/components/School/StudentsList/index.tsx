@@ -8,9 +8,9 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { AlunoDialog } from "../AlunosDialog";
 import { StudentsOverviewChart } from "../StudentOverviewChart";
 import { Card } from "@/components/ui/card";
+import { AlunoDialog } from "../AlunosDialog";
 
 export const StudentsList = () => {
   const [ordenarPor, setOrdenarPor] = useState("cra");

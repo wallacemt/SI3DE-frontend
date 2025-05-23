@@ -28,7 +28,6 @@ import { Link } from "react-router";
 
 const COLORS = ["#2563eb", "#60a5fa", "#f97316", "#10b981", "#6366f1"];
 
-// Dados fictícios
 const candidaturasMesData = [
   { month: "Jan", Estágio: 10 },
   { month: "Feb", Estágio: 18 },

@@ -2,14 +2,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { FaPaperPlane } from "react-icons/fa";
-import { VagaDialog } from "../VagaDialog";
 import { useEffect, useState } from "react";
 import { useVagas } from "@/hooks/useVagas";
 import type { Vaga } from "@/types/vagasType";
 import { toast } from "sonner";
 import { Link } from "react-router";
-import { Loading } from "../Utils/Loading";
-import { CircleSpinner } from "../ui/circleSpin";
+import { CircleSpinner } from "@/components/ui/circleSpin";
+import { Loading } from "@/components/Utils/Loading";
+import { VagaDialog } from "../VagaDialog";
 
 export const VagasList = () => {
   const [vagas, setVagas] = useState<Vaga[] | []>();

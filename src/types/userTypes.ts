@@ -5,7 +5,7 @@ export interface LoginResponse {
   nome: string;
   role: "student" | "teacher" | "admin";
 }
-
+export type UserRole = "student" | "teacher";
 interface UserProfile {
   id: string;
   craValue: number;
@@ -27,4 +27,5 @@ export interface UserData {
   nome: string;
   role: string;
   profile?: UserProfile;
+  adminName?: string;
 }

@@ -12,11 +12,11 @@ import { CircleSpinner } from "@/components/ui/circleSpin";
 import { useLoginForm } from "@/hooks/useLogin";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
 
-export const Login = () => {
+export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
 
   const { form, loading, handleLogin } = useLoginForm();
-  
+
   useEffect(() => {
     Aos.init({
       duration: 2000,
@@ -121,10 +121,10 @@ export const Login = () => {
                 </Button>
               </form>
             </Form>
-          </div>  
+          </div>
 
           <div className="w-screen bg-[#dcd6d1] text-center text-sm md:text-lg text-neutral90/80 bg-DarkP1 font-secundaria bottom-0">
-            <span>Está com dúvidas para fazer o login?{" "}</span>
+            <span>Está com dúvidas para fazer o login? </span>
             <span className="font-semibold cursor-pointer underline hover:text-neutral90/100">Acessar Ajuda</span>
             <div className="w-full text-center text-xs text-neutral90/80">
               <p className="font-semibold text-xs">
@@ -137,4 +137,4 @@ export const Login = () => {
       </ScrollArea>
     </div>
   );
-};
+}

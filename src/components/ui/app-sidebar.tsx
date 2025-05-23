@@ -11,9 +11,9 @@ import {
 } from "@/components/ui/sidebar";
 import { useUserContext } from "@/hooks/useUserContext";
 import { Link } from "react-router";
-import { UserOverview } from "../UserOverview";
+import { UserOverview } from "../Students/UserOverview";
 import { data } from "@/assets/data";
-import { AdminOverview } from "../AdminOverview";
+import { AdminOverview } from "../School/AdminOverview";
 
 export function AppSidebar({ sidebarType = "student", ...props }: React.ComponentProps<typeof Sidebar>) {
   const { user } = useUserContext();

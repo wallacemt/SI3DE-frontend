@@ -2,14 +2,16 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { usePerfilModal } from "@/hooks/useProfileModal";
 import { useUserContext } from "@/hooks/useUserContext";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
-import { MultiSelect } from "../ui/multiselect";
+
 import opcoes from "@/data/opcoesPerfil.json";
 import opcoesCurso from "@/data/opcoesCurso.json";
-import { Loading } from "../Utils/Loading";
-import { CircleSpinner } from "../ui/circleSpin";
+
 import { DialogDescription } from "@radix-ui/react-dialog";
+import { Input } from "@/components/ui/input";
+import { MultiSelect } from "@/components/ui/multiselect";
+import { CircleSpinner } from "@/components/ui/circleSpin";
+import { Loading } from "@/components/Utils/Loading";
+import { Button } from "@/components/ui/button";
 
 export const ProfileFormModal = () => {
   const { viewModal, handleViewModal } = useUserContext();

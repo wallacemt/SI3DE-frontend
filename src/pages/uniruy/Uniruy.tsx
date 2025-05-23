@@ -1,12 +1,12 @@
 import { SideBar } from "@/components/SideBar";
-import { StudentsList } from "@/components/StudentsList";
 import { StudentsCharts } from "../studentCharts";
+import { StudentsList } from "@/components/School/StudentsList";
 
 interface UniruyProps {
   page?: "home" | "graficos";
 }
 
-export const Uniruy = ({ page = "home" }: UniruyProps) => {
+export default function Uniruy({ page = "home" }: UniruyProps) {
   const pageComponents = {
     home: () => <StudentsList />,
     graficos: () => <StudentsCharts />,
@@ -16,4 +16,4 @@ export const Uniruy = ({ page = "home" }: UniruyProps) => {
       <SideBar type="teacher">{pageComponents[page]()}</SideBar>
     </div>
   );
-};
+}

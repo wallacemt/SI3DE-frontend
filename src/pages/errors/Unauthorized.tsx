@@ -5,7 +5,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router";
 
-export const Unauthorized: React.FC = () => {
+const Unauthorized: React.FC = () => {
   useEffect(() => {
     AOS.init({ duration: 600 });
   }, []);
@@ -46,3 +46,4 @@ export const Unauthorized: React.FC = () => {
     </div>
   );
 };
+export default Unauthorized;
