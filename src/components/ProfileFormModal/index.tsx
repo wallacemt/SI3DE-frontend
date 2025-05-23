@@ -15,19 +15,20 @@ export const ProfileFormModal = () => {
   const { viewModal, handleViewModal } = useUserContext();
   const { form, loading, onSubmit } = usePerfilModal();
   const formatUrl = (url: string) => (url.startsWith("https://") ? url : `https://${url}`);
-
+  
   return (
     <Dialog open={viewModal} onOpenChange={handleViewModal}>
       <DialogContent
         fullscreen
         hideClose
-        className="w-full flex items-center justify-center flex-col px-6 py-10 font-secundaria gap-10 bg-DarkP rounded-md border border-DarkA2 shadow-2xl overflow-auto"
+        className="w-full flex items-center justify-center flex-col px-6 py-10 font-secundaria gap-10 dark:bg-background bg-foreground rounded-md border border-DarkA2 shadow-2xl overflow-auto"
         onEscapeKeyDown={(e) => {
           e.preventDefault();
         }}
       >
-          <img src="/logo.svg" alt="Wyden Logo" className=" fixed top-[-0.3rem] left-[-1.2rem] w-32 mb-4 self-start" />
+        <img src="/logo.svg" alt="Wyden Logo" className=" fixed top-[-0.3rem] left-[-1.2rem] w-32 mb-4 self-start" />
         <DialogHeader>
+        
           <img
             src="https://res.cloudinary.com/dg9hqvlas/image/upload/v1744306739/logo_dhl8vb.png"
             alt="Project Logo"
@@ -44,7 +45,7 @@ export const ProfileFormModal = () => {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="w-full max-w-2xl  space-y-4 text-primary bg-DarkP2 p-2 rounded-md"
+            className="w-full max-w-2xl  space-y-4 dark:text-foreground text-neutral90 bg-DarkP2 p-2 rounded-md"
           >
             <FormField
               control={form.control}

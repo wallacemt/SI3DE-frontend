@@ -28,12 +28,18 @@ export function NavUser({
   const { logout } = useUserContext();
 
   const [theme, setTheme] = useState<"light" | "dark">(localStorage.getItem("theme") as "light" | "dark");
-
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+      setTheme("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+      setTheme("light");
     }
   }, [theme]);
+
   const toggleTheme = () => {
     if (theme === "light") {
       document.documentElement.classList.add("dark");

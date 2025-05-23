@@ -10,7 +10,7 @@ import { NotFoundPage } from "./pages/errors/404";
 
 export const AppRoutes = () => {
   const { user, loading } = useUserContext();
-
+ 
   const privateRoutes = [
     { path: "/dashboard", element: <Students />, role: "student" },
     { path: "/carreira", element: <Students page="carreiras" />, role: "student" },
@@ -21,6 +21,7 @@ export const AppRoutes = () => {
   if (loading) {
     return <LoadingPage />;
   }
+  
   return (
     <Routes>
       <Route

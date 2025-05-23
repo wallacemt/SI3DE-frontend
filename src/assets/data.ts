@@ -62,7 +62,7 @@ export const data = {
       icon: Workflow,
       isActive: true,
       items: [
-        { title: "Disponíveis", url: "/estagios/disponiveis" },
+        { title: "Disponíveis", url: "/dashboard" },
         { title: "Carreira", url: "/carreira" },
         { title: "Inscrições", url: "/estagios/inscricoes" },
         { title: "Histórico", url: "/estagios/historico" },

@@ -27,8 +27,7 @@ export const UserProvider = ({ children }: any) => {
     const token = Cookies.get("jwtToken");
     if (token) {
       fetchUserData();
-    } 
-    else {
+    } else {
       setLoading(false);
     }
   }, [update]);
@@ -44,8 +43,7 @@ export const UserProvider = ({ children }: any) => {
       if (error.response.status === 401) {
         logout();
       }
-    } 
-    finally {
+    } finally {
       setTimeout(() => {
         setLoading(false);
       }, 2500);

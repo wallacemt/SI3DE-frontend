@@ -1,15 +1,4 @@
 export interface Vaga {
-  id: string;
-  title: string;
-  subscriptions: number;
-  createdAt: string;
-  publicationPlataform: string;
-  description: string;
-  modalidade: "remoto" | "híbrido" | "presencial";
-  nível: "estágio" | "trainee" | "efetivo";
-}
-
-export interface VagaResponse {
   _id: string;
   bolsa: number;
   createdAt: Date;
@@ -20,6 +9,20 @@ export interface VagaResponse {
   publicationPlataform: string;
   requisitos: string[];
   subscriptionRef: string;
+  subscriptions: number;
   title: string;
   turno: string;
+}
+export interface VagaResponse {
+  limit: number;
+  page: number;
+  pages: number;
+  total: number;
+  vagas: Vaga[];
+}
+
+export interface Insights {
+  description: string;
+  label: string;
+  value: number;
 }

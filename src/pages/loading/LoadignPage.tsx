@@ -35,16 +35,28 @@ export const LoadingPage: React.FC = () => {
       clearInterval(tipInterval);
     };
   }, []);
+  const [theme, setTheme] = useState<"light" | "dark">(localStorage.getItem("theme") as "light" | "dark");
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+      setTheme("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+      setTheme("light");
+    }
+  }, []);
 
   return (
-    <div className="bg-gray-50 min-h-screen flex items-center justify-center p-4 sm:p-6 relative">
+    <div className="bg-foreground dark:bg-DarkP min-h-screen flex items-center justify-center p-4 sm:p-6 relative">
       <div
-        className="relative z-10 w-full max-w-md bg-white rounded-xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
+        className="relative z-10 w-full max-w-md dark:bg-DarkP bg-card-foreground rounded-xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
         data-aos="zoom-in"
       >
         {/* Conteúdo principal com rolagem se necessário */}
         <div className="overflow-y-auto flex-grow">
-          <div className="bg-neutral10 px-6 py-4">
+          <div className="dark:bg-DarkP bg-card-foreground px-6 py-4">
             <div className="flex items-center justify-center space-x-3">
               <img
                 src="https://res.cloudinary.com/dg9hqvlas/image/upload/v1744306739/logo_dhl8vb.png"
@@ -57,9 +69,9 @@ export const LoadingPage: React.FC = () => {
           <div className="px-8 py-4 text-center">
             {/* Ícone animado */}
             <div className="relative mx-auto w-24 h-24 mb-6">
-              <div className="absolute inset-0 rounded-full border-4 border-indigo-100 animate-spin-slow" />
+              <div className="absolute inset-0 rounded-full border-4 border-indigo-300 animate-spin-slow" />
               <div
-                className="absolute inset-4 rounded-full border-4 border-indigo-200 animate-spin-slow"
+                className="absolute inset-4 rounded-full border-4 border-indigo-300 animate-spin-slow"
                 style={{ animationDirection: "reverse" }}
               />
               <div className="absolute inset-8 flex items-center justify-center">
@@ -67,17 +79,19 @@ export const LoadingPage: React.FC = () => {
               </div>
             </div>
 
-            <h2 className="text-2xl font-bold font-principal text-gray-800 mb-2">Encontrando as melhores vagas</h2>
-            <p className="text-gray-600 mb-2 font-secundaria">
+            <h2 className="text-2xl font-bold font-principal text-neutral10 dark:text-gray-800 mb-2">
+              Encontrando as melhores vagas
+            </h2>
+            <p className="text-gray-200 dark:text-gray-600 mb-2 font-secundaria">
               Estamos analisando seu perfil e buscando oportunidades compatíveis...
             </p>
-            <p className="text-sm text-gray-500 mt-1 italic font-secundaria">{tips[tipIndex]}</p>
+            <p className="text-sm text-gray-100 dark:text-gray-500 mt-1 italic font-secundaria">{tips[tipIndex]}</p>
 
             <div className="my-6">
-              <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                 <div className="h-full bg-indigo-600 rounded-full transition-all" style={{ width: `${progress}%` }} />
               </div>
-              <p className="text-sm text-gray-500 mt-2">{Math.floor(progress)}% concluído</p>
+              <p className="text-sm text-gray-50 dark:text-gray-500 mt-2">{Math.floor(progress)}% concluído</p>
             </div>
 
             <div className="flex justify-center space-x-4 mt-4">
@@ -94,7 +108,7 @@ export const LoadingPage: React.FC = () => {
                   >
                     <div className="text-indigo-600">{step.icon}</div>
                   </div>
-                  <span className="text-xs text-gray-500 mt-2">{step.label}</span>
+                  <span className="text-xs text-gray-200 dark:text-gray-500 mt-2">{step.label}</span>
                 </div>
               ))}
             </div>
@@ -102,7 +116,7 @@ export const LoadingPage: React.FC = () => {
         </div>
 
         {/* Rodapé fixo */}
-        <div className="bg-gray-50 px-6 py-4 border-t border-gray-200 text-sm text-gray-500 text-center">
+        <div className="bg-card-foreground/50 px-6 py-4 border-t border-gray-200 text-sm dark:text-gray-100 text-gray-500 text-center">
           <FaLock className="inline mr-2" />
           Seus dados estão protegidos e serão usados apenas para esta finalidade
         </div>

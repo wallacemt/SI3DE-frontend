@@ -11,7 +11,7 @@ export const getVagas = async (): Promise<VagaResponse> => {
   try {
     handleToken(userApi);
     const response = await userApi.get<VagaResponse>("");
-    return response.data;
+    return response.data as VagaResponse;
   } catch (error: any) {
     console.error(error);
     throw error;
