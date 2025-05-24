@@ -13,8 +13,8 @@ export const perfilSchema = z.object({
   craValue: z.number().min(0).max(10, "CRA deve ser entre 0 e 10"),
   interesses: z.array(z.string()).nonempty("Escolha pelo menos um interesse"),
   habilidades: z.array(z.string()).nonempty("Informe pelo menos uma habilidade"),
-  linkedin: z.string().min(3, "URL inválida"),
-  github: z.string().min(3, "URL inválida"),
+  linkedin: z.string().min(3).refine((value) => value.startsWith("https://www.linkedin.com/"), "URL inválida"),
+  github: z.string().min(3, "URL inválida").refine((value) => value.startsWith("https://github.com/"), "URL inválida"),
   portfolio: z.string().min(3, "URL inválida").optional().or(z.literal("")),
 });
 
