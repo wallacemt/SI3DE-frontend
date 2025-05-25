@@ -35,9 +35,6 @@ export const StudentsList = () => {
 
     fetchStudents();
   }, []);
-
-  console.log(students);
-
   const resetFiltros = () => {
     setOrdenarPor("cra");
     setOrdem("desc");
