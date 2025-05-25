@@ -1,6 +1,6 @@
 import { SideBar } from "@/components/SideBar";
 import { StudentsCharts } from "../studentCharts";
-import { StudentsList } from "@/components/School/StudentsList";
+import { StudentsList } from "@/components/Faculty/StudentsList";
 
 interface UniruyProps {
   page?: "home" | "graficos";

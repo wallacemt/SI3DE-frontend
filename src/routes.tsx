@@ -45,11 +45,7 @@ export const AppRoutes = () => {
         <Route path="/unauthorized" element={<Unauthorized />} />
 
         {privateRoutes.map(({ path, render, role }) => (
-          <Route
-            key={path}
-            path={path}
-            element={<RoleBasedRoute render={render} allowedRole={role} />}
-          />
+          <Route key={path} path={path} element={<RoleBasedRoute render={render} allowedRole={role} />} />
         ))}
 
         <Route path="*" element={<NotFoundPage />} />

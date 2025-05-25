@@ -1,4 +1,4 @@
-import { getVagas } from "@/api/vagasApi";
+import { getVagas } from "@/api/vacanciesApi";
 import type { VagaResponse } from "@/types/vagasType";
 import { useState } from "react";
 

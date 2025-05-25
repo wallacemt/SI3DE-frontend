@@ -6,7 +6,7 @@ export interface LoginResponse {
   role: "student" | "teacher" | "admin";
 }
 export type UserRole = "student" | "teacher";
-interface UserProfile {
+interface StudentProfile {
   id: string;
   craValue: number;
   curso: string;
@@ -26,6 +26,7 @@ export interface UserData {
   isFullProfile: boolean;
   nome: string;
   role: string;
-  profile?: UserProfile;
+  profile?: StudentProfile;
   adminName?: string;
+  vacanciesSubscribe?: Object[];
 }
