@@ -1,18 +1,17 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { FaPaperPlane } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { useVagas } from "@/hooks/useVacancies";
 import type { Vaga } from "@/types/vagasType";
 import { toast } from "sonner";
-import { Link } from "react-router";
 import { CircleSpinner } from "@/components/ui/circleSpin";
 import { Loading } from "@/components/Utils/Loading";
-import { VagaDialog } from "../VagaDialog";
 import empty from "@/assets/empty.svg";
+import { VagaCard } from "@/components/Utils/VagaCard";
+import { BriefcaseBusiness } from "lucide-react";
+import { Empty } from "@/components/Utils/Empty";
+
 export const VagasList = () => {
   const [vagas, setVagas] = useState<Vaga[]>([]);
   const [search, setSearch] = useState("");
@@ -43,7 +42,9 @@ export const VagasList = () => {
 
   return (
     <div className="space-y-8 px-4 sm:px-12 mb-4">
-      <h2 className="text-2xl font-semibold tracking-tight">Vagas Disponíveis</h2>
+      <h1 className="text-2xl font-bold text-primary flex gap-2 items-center">
+        <BriefcaseBusiness className="text-secundaria/90" size={30} /> Vagas Disponiveis
+      </h1>
 
       <div className="md:grid gap-4 md:grid-cols-2 flex flex-col">
         <div className="relative">
@@ -75,7 +76,17 @@ export const VagasList = () => {
               <SelectItem value="híbrido">Híbrido</SelectItem>
             </SelectContent>
           </Select>
-
+          <Select onValueChange={(value) => setFilters((prev) => ({ ...prev, turno: value }))}>
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Turno" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="matutino">Matutino</SelectItem>
+              <SelectItem value="vespertino">Vespertino</SelectItem>
+              <SelectItem value="noturno">Noturno</SelectItem>
+              <SelectItem value="integral">Integral</SelectItem>
+            </SelectContent>
+          </Select>
           <Select onValueChange={(value) => setFilters((prev) => ({ ...prev, nível: value }))}>
             <SelectTrigger className="w-full">
               <SelectValue placeholder="Nível" />
@@ -96,43 +107,11 @@ export const VagasList = () => {
       ) : (
         <>
           {vagas.length <= 0 && (
-            <div className="w-full h-full flex flex-col items-center justify-center  shadow-muted-foreground">
-              <img src={empty} alt="Empty Ilustration" className="h-60" />
-              <p className="text-md text-muted-foreground">Nenhuma vaga encontrada</p>
-            </div>
+            <Empty image={empty} message="Nehuma vaga encontrada!"/>
           )}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-4">
             {vagas?.map((vaga) => (
-              <Card key={vaga._id} className="flex flex-col justify-between relative">
-                <CardHeader>
-                  <CardTitle className="truncate max-w-[28ch]">{vaga.title}</CardTitle>
-                  <div className="flex gap-4">
-                    <p className="text-sm text-muted-foreground">{vaga.empresa}</p>
-                    <Badge variant="outline" className="text-secundariaP2 border border-secundaria">
-                      Inscritos: {vaga.subscriptions}
-                    </Badge>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div>
-                    <p className="text-sm font-medium">Requisitos:</p>
-                    <ul className="list-disc list-inside text-sm text-muted-foreground space-x-2 space-y-2 p-1">
-                      <Badge>Conhecimento em React</Badge>
-                      <Badge>HTML, CSS, JS</Badge>
-                      <Badge>Boa comunicação</Badge>
-                    </ul>
-                  </div>
-                  <div className="flex flex-col gap-2 mt-4">
-                    <Link to={vaga.subscriptionRef} target="_blank" referrerPolicy="no-referrer">
-                      <Button className="w-full bg-primary80 text-white hover:bg-primary80/80">
-                        <FaPaperPlane />
-                        Candidatar-se
-                      </Button>
-                    </Link>
-                    <VagaDialog vaga={vaga} />
-                  </div>
-                </CardContent>
-              </Card>
+              <VagaCard vaga={vaga} key={vaga._id} />
             ))}
           </div>
         </>

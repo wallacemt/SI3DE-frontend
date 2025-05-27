@@ -64,8 +64,7 @@ export const data = {
       items: [
         { title: "Disponíveis", url: "/dashboard" },
         { title: "Carreira", url: "/carreira" },
-        { title: "Inscrições", url: "/estagios/inscricoes" },
-        { title: "Histórico", url: "/estagios/historico" },
+        { title: "Inscrições", url: "/inscricoes" },
       ],
     },
     {

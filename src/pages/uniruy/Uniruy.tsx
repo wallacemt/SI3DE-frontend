@@ -1,5 +1,5 @@
 import { SideBar } from "@/components/SideBar";
-import { StudentsCharts } from "../studentCharts";
+import { StudentsCharts } from "../../components/Faculty/StudentCharts";
 import { StudentsList } from "@/components/Faculty/StudentsList";
 
 interface UniruyProps {

@@ -8,9 +8,9 @@ import { Loading } from "@/components/Utils/Loading";
 import type { Insights } from "@/types/vagasType";
 
 const PIE_COLORS = ["#023535", "#015958", "#008F8C", "#0CABA8", "#0FC2C0"];
-const BAR_COLOR = "#2563eb"; // azul mais informativo
+const BAR_COLOR = "#2563eb";
 
-export default function CarreirasPage() {
+export default function StudentCaerer() {
   const [areasEmAlta, setAreasEmAlta] = useState<Insights[]>([]);
   const [carreira, setCarreira] = useState<Insights[]>([]);
   const { getAreasEmAlta, getCarreiraInsight, loading } = useAi();

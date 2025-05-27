@@ -12,7 +12,16 @@ export interface Vaga {
   subscriptions: number;
   title: string;
   turno: string;
+  status?: VagaStatus;
 }
+export type VagaStatus =
+  | "nao_inscrito"
+  | "inscrito"
+  | "em_analise"
+  | "aprovado"
+  | "reprovado"
+  | "finalista"
+  | "contratado";
 export interface VagaResponse {
   limit: number;
   page: number;

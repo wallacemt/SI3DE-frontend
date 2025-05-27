@@ -18,6 +18,8 @@ export const AppRoutes = () => {
   const privateRoutes: { path: string; render: () => JSX.Element; role: UserRole }[] = [
     { path: "/dashboard", render: () => <Students />, role: "student" },
     { path: "/carreira", render: () => <Students page="carreiras" />, role: "student" },
+    { path: "/inscricoes", render: () => <Students page="inscricoes" />, role: "student" },
+    { path: "/avaliacoes/nova", render: () => <Students page="avaliar-estagio" />, role: "student" },
     { path: "/uniruy/dashboard", render: () => <Uniruy />, role: "teacher" },
     { path: "/uniruy/dashboard/graficos", render: () => <Uniruy page="graficos" />, role: "teacher" },
   ];
