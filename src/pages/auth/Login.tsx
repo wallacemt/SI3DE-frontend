@@ -84,7 +84,7 @@ export default function Login() {
                   name="password"
                   render={({ field }) => (
                     <FormItem className="relative">
-                      <FormLabel className="text-sm font-medium text-neutral-90/80 mb-1">Senha</FormLabel>
+                      <FormLabel className="text-sm font-medium text-neutral90/80 mb-1">Senha</FormLabel>
                       <span className="absolute left-0 top-[3.2rem] transform -translate-y-1/2 text-neutral90/70 border-r border-neutral-500 p-1">
                         <KeyIcon size={20} />
                       </span>

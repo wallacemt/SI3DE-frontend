@@ -5,10 +5,10 @@ import { useState } from "react";
 export const useVagas = () => {
   const [loading, setLoading] = useState(false);
 
-  const getAppVagas = async (): Promise<VagaResponse | null> => {
+  const getAppVagas = async (filtros?: Record<string, string>): Promise<VagaResponse | null> => {
     setLoading(true);
     try {
-      const response = await getVagas();
+      const response = await getVagas(filtros);
       return response;
     } catch (error: any) {
       throw error;

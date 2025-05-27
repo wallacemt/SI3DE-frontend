@@ -7,10 +7,10 @@ const vacanciesApi = axios.create({
   withCredentials: true,
 });
 
-export const getVagas = async (): Promise<VagaResponse> => {
+export const getVagas = async (params?: Record<string, string>): Promise<VagaResponse> => {
   try {
     handleToken(vacanciesApi);
-    const response = await vacanciesApi.get<VagaResponse>("");
+    const response = await vacanciesApi.get<VagaResponse>("", { params, });
     return response.data as VagaResponse;
   } catch (error: any) {
     console.error(error);
