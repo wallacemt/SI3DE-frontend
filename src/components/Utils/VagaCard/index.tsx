@@ -15,7 +15,7 @@ interface VagaCardProps {
 }
 export const VagaCard = ({ vaga, isSubscribed, mode = "default" }: VagaCardProps) => {
   return (
-    <Card className="flex flex-col justify-between relative">
+    <Card className="flex w-full flex-col justify-between relative">
       <CardHeader>
         <CardTitle className="truncate max-w-[28ch]">{vaga.title}</CardTitle>
         <span className="text-xs text-muted-foreground">
@@ -28,10 +28,7 @@ export const VagaCard = ({ vaga, isSubscribed, mode = "default" }: VagaCardProps
           }).format(new Date(vaga?.createdAt || new Date()))}
         </span>
         <div className="flex gap-4">
-          <Badge
-            variant={vaga.modalidade === "remoto" ? "outline" : "secondary"}
-            className="text-sm text-muted-foreground"
-          >
+          <Badge variant={"outline"} className="text-sm text-muted-foreground">
             {vaga.empresa}
           </Badge>
           <Badge variant="secondary" className="text-muted-foreground font-bold">
@@ -91,7 +88,7 @@ export const VagaCard = ({ vaga, isSubscribed, mode = "default" }: VagaCardProps
                 Contratado
               </Button>
             ) : null)}
-          {mode === "avaliation" && <StageEvaluationDialog />}
+          {mode === "avaliation" && <StageEvaluationDialog vaga={vaga} />}
           <VagaDialog vaga={vaga} isSubscribed={isSubscribed} />
         </div>
       </CardContent>

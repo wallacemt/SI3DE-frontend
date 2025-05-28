@@ -30,7 +30,7 @@ export const AvaliarEstagio = () => {
   }, []);
 
   return (
-    <div className="space-y-8 px-4 sm:px-12 mb-4">
+    <div className="space-y-8 w-full px-4 sm:px-12 mb-4">
       <h1 className="text-2xl font-bold text-primary flex gap-2 items-center">
         <Star className="text-yellow-400/90" size={30} /> Avalie seus estagios
       </h1>
@@ -41,10 +41,10 @@ export const AvaliarEstagio = () => {
         </div>
       ) : (
         <>
-          {vagas.length <= 0 && <Empty image={empty} message="Nehuma vaga encontrada!" />}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-4">
+          {vagas.length <= 0 && <Empty image={empty} message="Nehuma estagio para avaliar encontrado!" />}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
             {vagas?.slice(0, 3).map((vaga) => (
-              <VagaCard vaga={vaga} key={vaga._id} mode="avaliation" />
+              <VagaCard vaga={vaga} key={vaga._id} mode="avaliation"  isSubscribed/>
             ))}
           </div>
         </>

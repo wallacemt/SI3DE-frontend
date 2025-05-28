@@ -1,7 +1,7 @@
 import { FaUserCircle } from "react-icons/fa";
 import { useUserContext } from "@/hooks/useUserContext";
 
-export const UserOverview = ({ hide = false }: { hide?: boolean }) => {
+export const  UserOverview = ({ hide = false }: { hide?: boolean }) => {
   const { user } = useUserContext();
   if (!user) return null;
   return (

@@ -42,6 +42,22 @@ export const StudentSubscriptions = () => {
         turno: "matutino",
         status: "aprovado",
       },
+      {
+        _id: "682fbc69b2f9cfb7b3960a4d",
+        bolsa: 1200.0,
+        createdAt: new Date("2025-04-29T09:00:00Z"),
+        description: "Conhecimentos em HTML, CSS, JavaScript e React.",
+        empresa: "TechWave",
+        modalidade: "remoto",
+        nível: "estágio",
+        publicationPlataform: "LinkedIn",
+        requisitos: ["HTML", "CSS", "JavaScript", "React"],
+        subscriptionRef: "https://www.linkedin.com/jobs/view/1",
+        subscriptions: 1,
+        title: "Estágio em Desenvolvimento Front-End",
+        turno: "matutino",
+        status: "aprovado",
+      },
     ]);
     setHistorico([
       {
@@ -69,10 +85,10 @@ export const StudentSubscriptions = () => {
         <BriefcaseBusiness /> Minhas Vagas
       </h1>
 
-      <Accordion type="multiple" className="w-full space-y-4" defaultValue={["inscritas"]}>
+      <Accordion type="multiple" className="w-full h-full space-y-4" defaultValue={["inscritas"]}>
         <AccordionItem value="inscritas">
           <AccordionTrigger className="text-lg font-medium">Vagas Inscritas</AccordionTrigger>
-          <AccordionContent className={`${inscritas?.length! > 0 ? "grid" : "block"} gap-4 md:grid-cols-2`}>
+          <AccordionContent className={`${inscritas?.length! > 0 ? "grid" : "block"} gap-4 lg:grid-cols-2`}>
             {inscritas?.length! > 0 ? (
               inscritas?.map((vaga) => <VagaCard key={vaga._id} vaga={vaga} isSubscribed />)
             ) : (
@@ -83,7 +99,7 @@ export const StudentSubscriptions = () => {
 
         <AccordionItem value="historico">
           <AccordionTrigger className="text-lg font-medium">Histórico de Vagas</AccordionTrigger>
-          <AccordionContent className={`${inscritas?.length! > 0 ? "grid" : "block"} gap-4 md:grid-cols-2`}>
+          <AccordionContent className={`${inscritas?.length! > 0 ? "grid" : "block"} gap-4 grid-cols-1 lg:grid-cols-2`}>
             {historico?.length! > 0 ? (
               historico?.map((vaga) => <VagaCard key={vaga._id} vaga={vaga} />)
             ) : (

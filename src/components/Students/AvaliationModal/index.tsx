@@ -18,6 +18,8 @@ import * as z from "zod";
 import { toast } from "sonner";
 import { useUserContext } from "@/hooks/useUserContext";
 import { Star } from "lucide-react";
+import type { Vaga } from "@/types/vagasType";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const evaluationSchema = z.object({
   companyName: z.string().min(1, "Nome da empresa é obrigatório"),
@@ -40,7 +42,10 @@ const evaluationSchema = z.object({
   anonymous: z.boolean().default(false),
 });
 
-export default function StageEvaluationDialog() {
+interface StageEvaluationDialogProps {
+  vaga: Vaga;
+}
+export default function StageEvaluationDialog({ vaga }: StageEvaluationDialogProps) {
   const { user } = useUserContext();
   const form = useForm({
     resolver: zodResolver(evaluationSchema),
@@ -73,7 +78,10 @@ export default function StageEvaluationDialog() {
       </DialogTrigger>
       <DialogContent className=" w-full md:max-w-3xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="flex gap-2 items-center"> <Star  className="text-yellow-400/90" size={20} /> Avaliar Experiência de Estágio</DialogTitle>
+          <DialogTitle className="flex gap-2 items-center">
+            {" "}
+            <Star className="text-yellow-400/90" size={20} /> Avaliar Experiência de Estágio
+          </DialogTitle>
           <DialogDescription>
             Compartilhe sua experiência e ajude outros estudantes a conhecerem melhor as empresas
           </DialogDescription>
@@ -83,15 +91,38 @@ export default function StageEvaluationDialog() {
           <div className="grid md:grid-cols-2 gap-5">
             <div className="space-y-2">
               <Label htmlFor="companyName">Nome da Empresa *</Label>
-              <Input id="companyName" {...form.register("companyName")} />
+              <Input id="companyName" {...form.register("companyName")} defaultValue={vaga.empresa} disabled />
             </div>
             <div className="space-y-2">
               <Label htmlFor="internshipArea">Área do Estágio *</Label>
-              <Input id="internshipArea" {...form.register("internshipArea")} />
+              <Select {...form.register("internshipArea")}>
+                <SelectTrigger className="w-full" id="internshipArea">
+                  <SelectValue placeholder="Selecione a área" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="administracao">Administração</SelectItem>
+                  <SelectItem value="tecnologia">Tecnologia</SelectItem>
+                  <SelectItem value="marketing">Marketing</SelectItem>
+                  <SelectItem value="contabilidade">Contabilidade</SelectItem>
+                  <SelectItem value="rh">Recursos Humanos</SelectItem>
+                  <SelectItem value="engenharia">Engenharia</SelectItem>
+                  <SelectItem value="outros">Outros</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
             <div className="space-y-2">
               <Label htmlFor="internshipDuration">Duração</Label>
-              <Input id="internshipDuration" {...form.register("internshipDuration")} />
+              <Select {...form.register("internshipDuration")}>
+                <SelectTrigger className="w-full" id="internshipDuration">
+                  <SelectValue placeholder="Selecione a duração" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="3-meses">3 meses</SelectItem>
+                  <SelectItem value="6-meses">6 meses</SelectItem>
+                  <SelectItem value="12-meses">12 meses</SelectItem>
+                  <SelectItem value="mais-12-meses">Mais de 12 meses</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
             <div className="space-y-2">
               <Label htmlFor="internshipPeriod">Período</Label>
@@ -109,11 +140,11 @@ export default function StageEvaluationDialog() {
               <div className="flex items-center space-x-4">
                 <div className="flex items-center gap-2">
                   <RadioGroupItem value="sim" id="rec-sim" />
-                  <Label htmlFor="rec-sim">Sim</Label>
+                  <Label htmlFor="rec-sim">Sim, recomendo esta empresa</Label>
                 </div>
                 <div className="flex items-center gap-2">
                   <RadioGroupItem value="nao" id="rec-nao" />
-                  <Label htmlFor="rec-nao">Não</Label>
+                  <Label htmlFor="rec-nao">Não recomendo esta empresa</Label>
                 </div>
               </div>
             </RadioGroup>
