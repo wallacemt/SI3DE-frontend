@@ -35,7 +35,10 @@ export const UserProvider = ({ children }: any) => {
   const fetchUserData = async () => {
     try {
       const userData = await getUserInfo();
-      if (!userData.isFullProfile && userData.role === "student") {
+      if (
+        (!userData.isFullProfile && userData.role === "student") ||
+        (userData.role === "student" && userData.profile === null)
+      ) {
         handleViewModal();
       }
       setUser(userData);

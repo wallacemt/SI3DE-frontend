@@ -12,12 +12,13 @@ import { MultiSelect } from "@/components/ui/multiselect";
 import { CircleSpinner } from "@/components/ui/circleSpin";
 import { Loading } from "@/components/Utils/Loading";
 import { Button } from "@/components/ui/button";
+import { Select, SelectItem, SelectTrigger, SelectContent, SelectValue } from "@/components/ui/select";
 
 export const ProfileFormModal = () => {
   const { viewModal, handleViewModal } = useUserContext();
   const { form, loading, onSubmit } = usePerfilModal();
   const formatUrl = (url: string) => (url.startsWith("https://") ? url : `https://${url}`);
-  
+
   return (
     <Dialog open={viewModal} onOpenChange={handleViewModal}>
       <DialogContent
@@ -30,7 +31,6 @@ export const ProfileFormModal = () => {
       >
         <img src="/logo.svg" alt="Wyden Logo" className=" fixed top-[-0.3rem] left-[-1.2rem] w-32 mb-4 self-start" />
         <DialogHeader>
-        
           <img
             src="https://res.cloudinary.com/dg9hqvlas/image/upload/v1744306739/logo_dhl8vb.png"
             alt="Project Logo"
@@ -85,6 +85,55 @@ export const ProfileFormModal = () => {
                       placeholder="Selecione seu curso"
                       multi={false}
                     />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="turno"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                    Turno <span className="text-destaque">*</span>
+                  </FormLabel>
+                  <FormControl>
+                    <Select onValueChange={(v) => field.onChange(v)} {...field} required>
+                      <SelectTrigger className="text-primary w-full border-secundaria focus:border-secundariaP2 placeholder:text-primary/80">
+                        <SelectValue placeholder="Selecione Seu Turno" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="matutino">Matutino</SelectItem>
+                        <SelectItem value="vespertino">Vespertino</SelectItem>
+                        <SelectItem value="noturno">Noturno</SelectItem>
+                        <SelectItem value="n/a">N/A</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="modalidade"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                    Modalidade <span className="text-destaque">*</span>
+                  </FormLabel>
+                  <FormControl>
+                    <Select onValueChange={(v) => field.onChange(v)} {...field} required>
+                      <SelectTrigger className="text-primary w-full border-secundaria focus:border-secundariaP2 placeholder:text-primary/80">
+                        <SelectValue placeholder="Selecione Sua Modalidade de Estudo" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="presencial">Presencial</SelectItem>
+                        <SelectItem value="semi-presencial">Semi-Presencial</SelectItem>
+                        <SelectItem value="ead">EAD</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </FormControl>
                   <FormMessage />
                 </FormItem>

@@ -12,9 +12,20 @@ export const perfilSchema = z.object({
   numeroMateriasConcluidas: z.number().min(0, "Insira um número válido"),
   craValue: z.number().min(0).max(10, "CRA deve ser entre 0 e 10"),
   interesses: z.array(z.string()).nonempty("Escolha pelo menos um interesse"),
+  turno: z.string().min(3, "Turno obrigatório"),
+  modalidade: z.string().min(3, "Modalidade obrigatória"),
   habilidades: z.array(z.string()).nonempty("Informe pelo menos uma habilidade"),
-  linkedin: z.string().min(3).refine((value) => value.startsWith("https://www.linkedin.com/"), "URL inválida"),
-  github: z.string().min(3, "URL inválida").refine((value) => value.startsWith("https://github.com/"), "URL inválida"),
+  linkedin: z
+    .string()
+    .min(3)
+    .refine(
+      (value) => value.startsWith("https://www.linkedin.com/"),
+      "URL inválida, deve comecar com https://www.linkedin.com/"
+    ),
+  github: z
+    .string()
+    .min(3, "URL inválida")
+    .refine((value) => value.startsWith("https://github.com/"), "URL inválida, deve comecar com https://github.com/"),
   portfolio: z.string().min(3, "URL inválida").optional().or(z.literal("")),
 });
 
@@ -29,6 +40,7 @@ export const usePerfilModal = () => {
       curso: "",
       numeroMateriasConcluidas: 0,
       craValue: 0,
+      turno: "",
       interesses: [],
       habilidades: [],
       linkedin: "",
@@ -55,7 +67,6 @@ export const usePerfilModal = () => {
     } finally {
       setLoading(false);
     }
-    console.log(values);
   };
 
   return { form, loading, onSubmit };

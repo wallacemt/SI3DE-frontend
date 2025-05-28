@@ -13,6 +13,9 @@ interface StudentProfile {
   habilidades: string[];
   interesses: string[];
   linkedin: string;
+  porcentagem_conclusao: {
+    porcentCompleted: number;
+  };
   numeroMateriasConcluidas: number;
   github: string;
   portfolio: string | null;

@@ -1,7 +1,7 @@
 import { FaUserCircle } from "react-icons/fa";
 import { useUserContext } from "@/hooks/useUserContext";
 
-export const  UserOverview = ({ hide = false }: { hide?: boolean }) => {
+export const UserOverview = ({ hide = false }: { hide?: boolean }) => {
   const { user } = useUserContext();
   if (!user) return null;
   return (
@@ -9,18 +9,18 @@ export const  UserOverview = ({ hide = false }: { hide?: boolean }) => {
       <div className="flex items-center gap-4">
         <FaUserCircle className="text-5xl text-secundariaP2" />
         <div>
-        <h3 className="text-base font-bold text-foreground">{user.nome}</h3>
+          <h3 className="text-base font-bold text-foreground">{user.nome}</h3>
           <p className="text-sm font-bold text-foreground/70">{user.profile?.curso!}</p>
         </div>
       </div>
       <div>
         <div className="text-sm font-bold text-foreground/80 mb-1">
-          {user.profile?.numeroMateriasConcluidas || 0}% do curso concluído
+          {user.profile?.porcentagem_conclusao.porcentCompleted || 0}% do curso concluído
         </div>
         <div className="bg-foreground/80 h-2 rounded-full overflow-hidden">
           <div
             className="bg-secundaria h-full transition-all duration-500"
-            style={{ width: `${user.profile?.numeroMateriasConcluidas || 0}%` }}
+            style={{ width: `${user.profile?.porcentagem_conclusao.porcentCompleted || 0}%` }}
           />
         </div>
       </div>

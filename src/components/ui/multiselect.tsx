@@ -88,7 +88,7 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
                 <CommandItem
                   key={option.value}
                   onSelect={() => toggleSelect(option.value)}
-                  className="text-principal"
+                  className="text-foreground"
                 >
                   <div className="flex items-center gap-2">
                     <Check
