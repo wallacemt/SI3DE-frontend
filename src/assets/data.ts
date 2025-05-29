@@ -23,6 +23,7 @@ export const data = {
       items: [
         { title: "Ajuda", url: "/sobre/ajuda" },
         { title: "Termos de Uso", url: "/sobre/termos" },
+        { title: "Documentação", url: "https://si3de-backend.onrender.com/" },
         { title: "Política de Privacidade", url: "/sobre/privacidade" },
       ],
     },
