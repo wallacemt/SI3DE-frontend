@@ -2,11 +2,15 @@ import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle } from 
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { MailIcon, GraduationCap, BookOpen, TrendingUp, Clock, Briefcase } from "lucide-react";
+import { MailIcon, GraduationCap, BookOpen, TrendingUp, Clock, Briefcase, GitCommitHorizontalIcon, Brain, Lightbulb } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { FaUserCircle } from "react-icons/fa";
 import type { UserData } from "@/types/userTypes";
+import { BsLinkedin } from "react-icons/bs";
+import { SiInternetcomputer } from "react-icons/si";
+import { Link } from "react-router";
+import { Badge } from "@/components/ui/badge";
 
 interface AlunoDialogProps {
   aluno: UserData;
@@ -21,7 +25,7 @@ export function AlunoDialog({ aluno }: AlunoDialogProps) {
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="max-w-xl px-6 py-5">
+      <DialogContent className="max-w-xl overflow-auto max-h-[80%] px-6 py-5">
         <DialogHeader className="flex items-center gap-3">
           <div className="rounded-full bg-blue-100 p-2">
             <FaUserCircle className="text-8xl text-secundaria/80" />
@@ -50,6 +54,63 @@ export function AlunoDialog({ aluno }: AlunoDialogProps) {
               locale: ptBR,
             })}
           />
+
+          <InfoItem
+            icon={Brain}
+            label="Habilidades"
+            value={
+              <div className="flex mt-2 flex-wrap gap-2">
+                {aluno.profile?.habilidades?.map((item) => (
+                  <Badge key={item} className="" variant="outline">
+                    {item}
+                  </Badge>
+                ))}
+              </div>
+            }
+          />
+          <InfoItem
+            icon={Lightbulb}
+            label="Interesses"
+            value={
+              <div className="flex mt-2 flex-wrap gap-2">
+                {aluno.profile?.interesses?.map((item) => (
+                  <Badge key={item} className="" variant="outline">
+                    {item}
+                  </Badge>
+                ))}
+              </div>
+            }
+          />
+
+          <Separator />
+          <InfoItem
+            icon={GitCommitHorizontalIcon}
+            label="Github"
+            value={
+              <Link to={aluno.profile?.github!} target="_blank" className="text-foreground hover:underline">
+                {aluno.profile?.github!}
+              </Link>
+            }
+          />
+          <InfoItem
+            icon={BsLinkedin}
+            label="Linkedin"
+            value={
+              <Link to={aluno.profile?.linkedin!} target="_blank" className="text-foreground hover:underline">
+                {aluno.profile?.linkedin!}
+              </Link>
+            }
+          />
+
+          <InfoItem
+            icon={SiInternetcomputer}
+            label="Portifolio"
+            value={
+              <Link to={aluno.profile?.portfolio!} target="_blank" className="text-foreground hover:underline">
+                {aluno.profile?.portfolio!}
+              </Link>
+            }
+          />
         </div>
 
         <Separator className="my-4" />
@@ -76,13 +137,13 @@ export function AlunoDialog({ aluno }: AlunoDialogProps) {
   );
 }
 
-function InfoItem({ icon: Icon, label, value }: { icon: React.ElementType; label: string; value: string | number }) {
+function InfoItem({ icon: Icon, label, value }: { icon: React.ElementType; label: string; value: any }) {
   return (
     <div className="flex items-start gap-3">
       <Icon className="h-4 w-4 mt-1 text-primary" />
       <div>
         <p className="text-xs uppercase">{label}</p>
-        <p className="text-foreground font-medium">{value}</p>
+        <div className="text-foreground font-medium">{value}</div>
       </div>
     </div>
   );

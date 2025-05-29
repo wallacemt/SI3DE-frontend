@@ -56,7 +56,7 @@ export const StudentSubscriptions = () => {
         subscriptions: 1,
         title: "Estágio em Desenvolvimento Front-End",
         turno: "matutino",
-        status: "aprovado",
+        status: "em_analise",
       },
     ]);
     setHistorico([

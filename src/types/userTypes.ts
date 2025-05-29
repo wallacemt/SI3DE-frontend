@@ -3,6 +3,7 @@ export interface LoginResponse {
   email: string;
   jwtToken: string;
   nome: string;
+  adminName?: string;
   role: "student" | "teacher" | "admin";
 }
 export type UserRole = "student" | "teacher";

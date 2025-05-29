@@ -68,6 +68,5 @@ export const usePerfilModal = () => {
       setLoading(false);
     }
   };
-
   return { form, loading, onSubmit };
 };

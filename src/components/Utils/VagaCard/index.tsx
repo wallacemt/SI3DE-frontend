@@ -59,12 +59,12 @@ export const VagaCard = ({ vaga, isSubscribed, mode = "default" }: VagaCardProps
               </Link>
             ) : vaga.status === "inscrito" ? (
               <Button variant="outline" className="w-full flex items-center gap-2">
-                <Loader className="text-primary" />
+                <Loader className="text-primary hover:animate-spin ease-in " />
                 Inscrito (aguardando análise)
               </Button>
             ) : vaga.status === "em_analise" ? (
               <Button variant="outline" className="w-full flex items-center gap-2">
-                <ChartPie className="text-yellow-500" />
+                <ChartPie className="text-yellow-500 hover:animate-spin ease-in  " />
                 Em análise
               </Button>
             ) : vaga.status === "aprovado" ? (

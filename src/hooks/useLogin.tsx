@@ -32,7 +32,7 @@ export const useLoginForm = () => {
       const data = form.getValues();
       const response = await userLogin(data.email, data.password);
       if (response) {
-        toast.success(`Bem vindo(a)! ${response.nome.split(" ")[0]}`);
+        toast.success(`Bem vindo(a)! ${response.adminName?.split(" ")[0] || response.nome.split(" ")[0]}`);
         login(response.jwtToken, response.role);
       }
     } catch (error: any) {

@@ -63,7 +63,7 @@ export const data = {
       isActive: true,
       items: [
         { title: "Disponíveis", url: "/dashboard" },
-        { title: "Carreira", url: "/carreira" },
+        { title: "Insights ", url: "/insights " },
         { title: "Inscrições", url: "/inscricoes" },
       ],
     },

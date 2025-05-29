@@ -7,7 +7,7 @@ import { ChevronLeft } from "lucide-react";
 
 const NotFoundPage: React.FC = () => {
   const [typedText, setTypedText] = useState("");
-  const fullText = "Página não encontrada";
+  const fullText = "  Página não encontrada";
 
   useEffect(() => {
     AOS.init();
