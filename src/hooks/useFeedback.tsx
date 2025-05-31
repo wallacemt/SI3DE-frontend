@@ -4,7 +4,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 export const useFeedback = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [update, setUpdate] = useState(false);
   const enviarFeedback = async ({
     tipo,
