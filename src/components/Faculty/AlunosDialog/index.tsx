@@ -30,7 +30,7 @@ export function AlunoDialog({ aluno }: AlunoDialogProps) {
           <div className="rounded-full bg-blue-100 p-2">
             <FaUserCircle className="text-8xl text-secundaria/80" />
           </div>
-          <DialogTitle className="text-2xl font-semibold text-foreground">{aluno.nome}</DialogTitle>
+          <DialogTitle className="text-xl font-semibold text-foreground truncate">{aluno.nome}</DialogTitle>
         </DialogHeader>
 
         <Separator className="my-3" />
@@ -92,21 +92,24 @@ export function AlunoDialog({ aluno }: AlunoDialogProps) {
               </Link>
             }
           />
-          <InfoItem
+          '<InfoItem
             icon={BsLinkedin}
             label="Linkedin"
             value={
-              <Link to={aluno.profile?.linkedin!} target="_blank" className="text-foreground hover:underline">
-                {aluno.profile?.linkedin!}
+              <Link to={aluno.profile?.linkedin!} target="_blank" className="text-foreground hover:underline truncate">
+                <p>
+
+                {aluno.profile?.linkedin!.slice(0, 50)  + "..." }
+                </p>
               </Link>
             }
-          />
+          />'
 
           <InfoItem
             icon={SiInternetcomputer}
             label="Portifolio"
             value={
-              <Link to={aluno.profile?.portfolio!} target="_blank" className="text-foreground hover:underline">
+              <Link to={aluno.profile?.portfolio!} target="_blank" className="text-foreground hover:underline truncate">
                 {aluno.profile?.portfolio!}
               </Link>
             }
@@ -139,9 +142,9 @@ export function AlunoDialog({ aluno }: AlunoDialogProps) {
 
 function InfoItem({ icon: Icon, label, value }: { icon: React.ElementType; label: string; value: any }) {
   return (
-    <div className="flex items-start gap-3">
+    <div className="flex items-start gap-3  ">
       <Icon className="h-4 w-4 mt-1 text-primary" />
-      <div>
+      <div >
         <p className="text-xs uppercase">{label}</p>
         <div className="text-foreground font-medium">{value}</div>
       </div>

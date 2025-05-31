@@ -20,7 +20,7 @@ export function AppSidebar({ sidebarType = "student", ...props }: React.Componen
   const { open } = useSidebar();
   const dataNav = [...(sidebarType === "student" ? data.student : data.uniruy), ...data.navMain,];
   return (
-    <Sidebar collapsible="icon" {...props}>
+    <Sidebar collapsible="icon" variant="sidebar" {...props}>
       <SidebarHeader>
         <Link to={"/"}>
           <div className="flex justify-center items-center mb-4">

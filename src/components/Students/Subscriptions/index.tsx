@@ -4,7 +4,7 @@ import type { Vaga } from "@/types/vagasType";
 import { VagaCard } from "@/components/Utils/VagaCard";
 import { BriefcaseBusiness } from "lucide-react";
 import { Empty } from "@/components/Utils/Empty";
-import emptyImg from "@/assets/empty.svg";
+
 export const StudentSubscriptions = () => {
   const [inscritas, setInscritas] = useState<Vaga[]>();
   const [historico, setHistorico] = useState<Vaga[]>();
@@ -92,7 +92,7 @@ export const StudentSubscriptions = () => {
             {inscritas?.length! > 0 ? (
               inscritas?.map((vaga) => <VagaCard key={vaga._id} vaga={vaga} isSubscribed />)
             ) : (
-              <Empty image={emptyImg} message="Nenhuma vaga inscrita" />
+              <Empty message="Nenhuma vaga inscrita" />
             )}
           </AccordionContent>
         </AccordionItem>
@@ -103,7 +103,7 @@ export const StudentSubscriptions = () => {
             {historico?.length! > 0 ? (
               historico?.map((vaga) => <VagaCard key={vaga._id} vaga={vaga} />)
             ) : (
-              <Empty image={emptyImg} message="Nenhuma histico de vaga" />
+              <Empty message="Nenhuma histico de vaga" />
             )}
           </AccordionContent>
         </AccordionItem>

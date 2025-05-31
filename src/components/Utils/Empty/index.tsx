@@ -1,8 +1,9 @@
+import emptyImg from "@/assets/empty.svg";
 interface EmptyProps {
-  image: string;
+  image?: string;
   message: string;
 }
-export const Empty = ({ image, message }: EmptyProps) => {
+export const Empty = ({ image = emptyImg, message }: EmptyProps) => {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center  shadow-muted-foreground">
       <img src={image} alt="Empty Ilustration" className="h-40" />

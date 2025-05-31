@@ -39,7 +39,7 @@ export function StudentsOverviewChart() {
     return (
         <div
             className={cn(
-                "transition-all duration-300 rounded-xl border p-4 bg-background shadow-md",
+                "transition-all duration-300 rounded-xl border w-full p-4 bg-background shadow-md",
                 expanded ? "h-full" : "h-16 overflow-hidden"
             )}
         >

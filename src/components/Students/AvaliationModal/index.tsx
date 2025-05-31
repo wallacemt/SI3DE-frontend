@@ -76,7 +76,7 @@ export default function StageEvaluationDialog({ vaga }: StageEvaluationDialogPro
           Avaliar Estágio
         </Button>
       </DialogTrigger>
-      <DialogContent className=" w-full md:max-w-3xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="w-full md:max-w-3xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="flex gap-2 items-center">
             {" "}

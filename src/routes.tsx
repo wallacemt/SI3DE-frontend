@@ -22,6 +22,7 @@ export const AppRoutes = () => {
     { path: "/avaliacoes/nova", render: () => <Students page="avaliar_estagio" />, role: "student" },
     { path: "/perfil", render: () => <Students page="perfil" />, role: "student" },
     { path: "/uniruy/dashboard", render: () => <Uniruy />, role: "teacher" },
+    { path: "/uniruy/feedbacks", render: () => <Uniruy page="feadbacks" />, role: "teacher" },
     { path: "/uniruy/dashboard/graficos", render: () => <Uniruy page="graficos" />, role: "teacher" },
   ];
 

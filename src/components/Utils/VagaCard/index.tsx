@@ -3,6 +3,7 @@ import { VagaDialog } from "@/components/Students/VagaDialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { formatDate } from "@/components/ui/formated";
 import type { Vaga } from "@/types/vagasType";
 import { ChartPie, CircleCheckBig, CircleX, Loader, Medal, PartyPopper } from "lucide-react";
 import { FaPaperPlane } from "react-icons/fa";
@@ -20,12 +21,7 @@ export const VagaCard = ({ vaga, isSubscribed, mode = "default" }: VagaCardProps
         <CardTitle className="truncate max-w-[28ch]">{vaga.title}</CardTitle>
         <span className="text-xs text-muted-foreground">
           Adicionado {""}
-          {new Intl.DateTimeFormat("pt-BR", {
-            day: "2-digit",
-            month: "long",
-            hour: "2-digit",
-            minute: "2-digit",
-          }).format(new Date(vaga?.createdAt || new Date()))}
+          {formatDate(vaga.createdAt.toString())}
         </span>
         <div className="flex gap-4">
           <Badge variant={"outline"} className="text-sm text-muted-foreground">

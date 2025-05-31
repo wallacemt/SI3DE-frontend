@@ -14,6 +14,7 @@ import {
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 import { Link } from "react-router";
+import { EnviarFeedback } from "../Students/NewFeedBack";
 
 export function NavMain({
   items,
@@ -49,9 +50,11 @@ export function NavMain({
                     <SidebarMenuSubItem key={subItem.title}>
                       <SidebarMenuSubButton asChild>
                         {subItem.title === "Documentação" ? (
-                         <Link to={subItem.url} target="_blank">
+                          <Link to={subItem.url} target="_blank">
                             <span>{subItem.title}</span>
                           </Link>
+                        ) : subItem.title === "FeedBack da Plataforma" ? (
+                          <EnviarFeedback />
                         ) : (
                           <Link to={subItem.url}>
                             <span>{subItem.title}</span>

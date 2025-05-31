@@ -78,17 +78,18 @@ export const StudentsList = () => {
       return ordem === "asc" ? valorA - valorB : valorB - valorA;
     });
 
-  return (
-    <>
+    return (
+    <div className="w-full p-4">
       {loading ? (
         <Loading spiner={<CircleSpinner color="#f30" />} message="Carregando estudantes..." />
       ) : (
-        <div className="flex flex-col gap-4 p-4 pt-0">
-          <Card className="p-4 flex flex-col md:flex-row flex-wrap gap-4 items-end justify-between">
-            <div className="flex flex-col gap-2 w-full md:w-1/4">
+        <div className="flex flex-col gap-6 items-center">
+          {/* Filtros */}
+          <Card className="p-4 grid grid-cols-1 w-full md:w-fit sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="flex flex-col gap-2">
               <Label>Ordenar por:</Label>
               <Select onValueChange={setOrdenarPor} value={ordenarPor}>
-                <SelectTrigger>
+                <SelectTrigger className="w-full">
                   <SelectValue placeholder="Ordenar por" />
                 </SelectTrigger>
                 <SelectContent>
@@ -101,10 +102,10 @@ export const StudentsList = () => {
               </Select>
             </div>
 
-            <div className="flex flex-col gap-2 w-full md:w-1/4">
+            <div className="flex flex-col gap-2">
               <Label>Ordem:</Label>
               <Select onValueChange={setOrdem} value={ordem}>
-                <SelectTrigger>
+                <SelectTrigger className="w-full">
                   <SelectValue placeholder="Ordem" />
                 </SelectTrigger>
                 <SelectContent>
@@ -114,25 +115,30 @@ export const StudentsList = () => {
               </Select>
             </div>
 
-            <div className="flex flex-col gap-2 w-full md:w-1/3">
+            <div className="flex flex-col gap-2 col-span-1 sm:col-span-2 lg:col-span-1">
               <Label>Buscar por nome ou email:</Label>
-              <Input placeholder="Digite aqui..." value={busca} onChange={(e) => setBusca(e.target.value)} />
+              <Input
+                placeholder="Digite aqui..."
+                value={busca}
+                onChange={(e) => setBusca(e.target.value)}
+              />
             </div>
 
-            <div>
-              <Button variant="outline" onClick={resetFiltros}>
+            <div className="flex items-end">
+              <Button variant="outline" onClick={resetFiltros} className="w-full">
                 Resetar filtros
               </Button>
             </div>
           </Card>
 
-          <div className="space-y-4">
-            <Table>
+          {/* Tabela */}
+          <div className="w-full md:w-[90%] overflow-x-auto">
+            <Table className="min-w-[800px]">
               <TableHeader>
                 <TableRow>
                   <TableHead>Nome</TableHead>
                   <TableHead>Email</TableHead>
-                  <TableHead>Curso</TableHead>
+                  <TableHead className="hidden sm:table-cell">Curso</TableHead>
                   <TableHead>CRA</TableHead>
                   <TableHead>Matérias</TableHead>
                   <TableHead>Último Acesso</TableHead>
@@ -145,7 +151,7 @@ export const StudentsList = () => {
                   <TableRow key={idx}>
                     <TableCell>{aluno.nome}</TableCell>
                     <TableCell>{aluno.email}</TableCell>
-                    <TableCell>{aluno.profile?.curso}</TableCell>
+                    <TableCell className="hidden sm:table-cell">{aluno.profile?.curso}</TableCell>
                     <TableCell>{aluno.profile?.craValue}</TableCell>
                     <TableCell>{aluno.profile?.numeroMateriasConcluidas}</TableCell>
                     <TableCell>
@@ -165,12 +171,13 @@ export const StudentsList = () => {
               </TableBody>
             </Table>
           </div>
+
+          {/* Gráfico */}
+          <div className="rounded-xl p-4 w-full overflow-x-auto">
+            <StudentsOverviewChart />
+          </div>
         </div>
       )}
-
-      <div className="rounded-xl h-fit p-4">
-        <StudentsOverviewChart />
-      </div>
-    </>
+    </div>
   );
 };

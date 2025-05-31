@@ -32,8 +32,7 @@ export const data = {
       url: "/configuracoes",
       icon: Settings2,
       items: [
-        { title: "Perfil", url: "/configuracoes/perfil" },
-        { title: "Conta", url: "/configuracoes/conta" },
+        { title: "Perfil", url: "/perfil" },
         { title: "Preferências", url: "/configuracoes/preferencias" },
       ],
     },
@@ -52,7 +51,7 @@ export const data = {
       items: [
         { title: "Usuários", url: "/admin/usuarios" },
         { title: "Estágios", url: "/admin/estagios" },
-        { title: "Relatórios", url: "/admin/relatorios" },
+        { title: "Feadbacks", url: "/uniruy/feedbacks" },
       ],
     },
   ],
@@ -75,6 +74,7 @@ export const data = {
       items: [
         { title: "Minhas Avaliações", url: "/avaliacoes/minhas" },
         { title: "Avaliar Estágio", url: "/avaliacoes/nova" },
+        { title: "FeedBack da Plataforma", url: "/new/feedback" },
       ],
     },
     {
