@@ -35,7 +35,90 @@ export const Feadbecks = () => {
   const fetchFeedbacks = useCallback(async () => {
     try {
       const res = await pegarFeedbacks();
-      setFeedbacks(res.feedbacks);
+      console.log(res.feedbacks);
+      setFeedbacks([
+        {
+          createdAt: "2025-05-31T01:14:31.585000",
+          curso: "Banco de dados",
+          email: "202304437020@alunos.uniruy.edu.br",
+          id: "683a57f79edde86cfe9af446",
+          mensagem: "Gostei Muito da plataforma, Parabéns Aos envolvidos no projeto Icaro!",
+          nome: "María Juliana Ramírez",
+          tipo: "erro",
+        },
+        {
+          createdAt: "2025-05-31T01:14:31.585000",
+          curso: "Banco de dados",
+          email: "202304437020@alunos.uniruy.edu.br",
+          id: "683a57f79edde86cfe9af446",
+          mensagem: "Gostei Muito da plataforma, Parabéns Aos envolvidos no projeto Icaro!",
+          nome: "María Juliana Ramírez",
+          tipo: "outro",
+        },
+        {
+          createdAt: "2025-05-31T01:14:31.585000",
+          curso: "Banco de dados",
+          email: "202304437020@alunos.uniruy.edu.br",
+          id: "683a57f79edde86cfe9af446",
+          mensagem: "Gostei Muito da plataforma, Parabéns Aos envolvidos no projeto Icaro!",
+          nome: "María Juliana Ramírez",
+          tipo: "sugestao",
+        },
+         {
+          createdAt: "2025-05-31T01:14:31.585000",
+          curso: "Banco de dados",
+          email: "202304437020@alunos.uniruy.edu.br",
+          id: "683a57f79edde86cfe9af446",
+          mensagem: "Gostei Muito da plataforma, Parabéns Aos envolvidos no projeto Icaro!",
+          nome: "María Juliana Ramírez",
+          tipo: "erro",
+        },
+        {
+          createdAt: "2025-05-31T01:14:31.585000",
+          curso: "Banco de dados",
+          email: "202304437020@alunos.uniruy.edu.br",
+          id: "683a57f79edde86cfe9af446",
+          mensagem: "Gostei Muito da plataforma, Parabéns Aos envolvidos no projeto Icaro!",
+          nome: "María Juliana Ramírez",
+          tipo: "outro",
+        },
+        {
+          createdAt: "2025-05-31T01:14:31.585000",
+          curso: "Banco de dados",
+          email: "202304437020@alunos.uniruy.edu.br",
+          id: "683a57f79edde86cfe9af446",
+          mensagem: "Gostei Muito da plataforma, Parabéns Aos envolvidos no projeto Icaro!",
+          nome: "María Juliana Ramírez",
+          tipo: "sugestao",
+        },
+         {
+          createdAt: "2025-05-31T01:14:31.585000",
+          curso: "Banco de dados",
+          email: "202304437020@alunos.uniruy.edu.br",
+          id: "683a57f79edde86cfe9af446",
+          mensagem: "Gostei Muito da plataforma, Parabéns Aos envolvidos no projeto Icaro!",
+          nome: "María Juliana Ramírez",
+          tipo: "erro",
+        },
+        {
+          createdAt: "2025-05-31T01:14:31.585000",
+          curso: "Banco de dados",
+          email: "202304437020@alunos.uniruy.edu.br",
+          id: "683a57f79edde86cfe9af446",
+          mensagem: "Gostei Muito da plataforma, Parabéns Aos envolvidos no projeto Icaro!",
+          nome: "María Juliana Ramírez",
+          tipo: "outro",
+        },
+        {
+          createdAt: "2025-05-31T01:14:31.585000",
+          curso: "Banco de dados",
+          email: "202304437020@alunos.uniruy.edu.br",
+          id: "683a57f79edde86cfe9af446",
+          mensagem: "Gostei Muito da plataforma, Parabéns Aos envolvidos no projeto Icaro!",
+          nome: "María Juliana Ramírez",
+          tipo: "sugestao",
+        },
+      ]);
     } catch (error) {
       console.error("Erro ao carregar feedbacks", error);
     }
@@ -63,9 +146,9 @@ export const Feadbecks = () => {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <Card className="shadow-xl rounded-2xl">
+      <Card className="shadow-xl  rounded-2xl">
         <CardHeader>
-          <CardDescription className="text-muted-foreground">
+          <CardDescription className="text-muted-foreground text-xs md:text-sm">
             Veja o que os alunos estão falando sobre a plataforma.
           </CardDescription>
         </CardHeader>
@@ -73,29 +156,39 @@ export const Feadbecks = () => {
         <CardContent>
           <Tabs
             defaultValue="todos"
-            className="w-full"
+            className="w-full  "
             onValueChange={(val: any) => {
               setSelectedTipo(val);
             }}
           >
-            <TabsList className="mb-4 flex flex-wrap justify-start gap-2">
-              <TabsTrigger value="todos">Todos</TabsTrigger>
-              <TabsTrigger value="sugestao">Sugestões</TabsTrigger>
-              <TabsTrigger value="erro">Erros</TabsTrigger>
-              <TabsTrigger value="elogio">Elogios</TabsTrigger>
-              <TabsTrigger value="outro">Outros</TabsTrigger>
+            <TabsList className="mb-4 mx-auto grid grid-cols-5 gap-2">
+              <TabsTrigger className="md:text-sm text-xs" value="todos">
+                Todos
+              </TabsTrigger>
+              <TabsTrigger className="md:text-sm text-xs" value="sugestao">
+                Sugestões
+              </TabsTrigger>
+              <TabsTrigger className="md:text-sm text-xs" value="erro">
+                Erros
+              </TabsTrigger>
+              <TabsTrigger className="md:text-sm text-xs" value="elogio">
+                Elogios
+              </TabsTrigger>
+              <TabsTrigger className="md:text-sm text-xs" value="outro">
+                Outros
+              </TabsTrigger>
             </TabsList>
 
             <TabsContent value={selectedTipo}>
               <ScrollArea className="h-fit pr-6 ease-in-out transition-discrete">
-                <div className="space-y-4">
+                <div className="space-y-6">
                   {loading ? (
                     <Loading spiner={<CircleSpinner color="#f30" />} message=" " />
                   ) : (
                     feedbacksFiltrados?.map((fb) => (
-                      <Card key={fb.id} className="border border-muted shadow-sm max-h-64">
+                      <Card key={fb.id} className="border overflow-auto w-full border-muted shadow-sm max-h-72">
                         <CardHeader
-                          className={`pb-2 relative flex flex-col sm:flex-row justify-between items-start sm:items-center ${
+                          className={`pb-2 md:mt-0 mt-4 relative flex flex-col sm:flex-row justify-between items-start sm:items-center ${
                             tipoMap[fb.tipo].color
                           } rounded-t-md`}
                         >
@@ -104,11 +197,11 @@ export const Feadbecks = () => {
                               <CardTitle className="text-base">
                                 {fb.nome.split(" ")[0] + " " + fb.nome.split(" ")[1]}
                               </CardTitle>
-                              <p className="text-sm text-muted-foreground">{formatDate(fb?.createdAt!)}</p>
+                              <p className="text-sm text-muted-foreground truncate">{formatDate(fb?.createdAt!)}</p>
                             </div>
                             <p className="text-sm text-muted-foreground">{fb.email}</p>
                           </div>
-                          <div className="flex flex-col md:flex-row items-center gap-2 absolute -top-2 right-2">
+                          <div className="flex md:flex-row items-center gap-2 absolute md:-top-4 -top-10 right-2 ">
                             {tipoMap[fb.tipo].icon}
                             <Badge variant="secondary" className={`${tipoMap[fb.tipo].color} capitalize bg-foreground`}>
                               {tipoMap[fb.tipo].label}
