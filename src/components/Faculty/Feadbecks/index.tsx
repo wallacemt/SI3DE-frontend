@@ -35,90 +35,7 @@ export const Feadbecks = () => {
   const fetchFeedbacks = useCallback(async () => {
     try {
       const res = await pegarFeedbacks();
-      console.log(res.feedbacks);
-      setFeedbacks([
-        {
-          createdAt: "2025-05-31T01:14:31.585000",
-          curso: "Banco de dados",
-          email: "202304437020@alunos.uniruy.edu.br",
-          id: "683a57f79edde86cfe9af446",
-          mensagem: "Gostei Muito da plataforma, Parabéns Aos envolvidos no projeto Icaro!",
-          nome: "María Juliana Ramírez",
-          tipo: "erro",
-        },
-        {
-          createdAt: "2025-05-31T01:14:31.585000",
-          curso: "Banco de dados",
-          email: "202304437020@alunos.uniruy.edu.br",
-          id: "683a57f79edde86cfe9af446",
-          mensagem: "Gostei Muito da plataforma, Parabéns Aos envolvidos no projeto Icaro!",
-          nome: "María Juliana Ramírez",
-          tipo: "outro",
-        },
-        {
-          createdAt: "2025-05-31T01:14:31.585000",
-          curso: "Banco de dados",
-          email: "202304437020@alunos.uniruy.edu.br",
-          id: "683a57f79edde86cfe9af446",
-          mensagem: "Gostei Muito da plataforma, Parabéns Aos envolvidos no projeto Icaro!",
-          nome: "María Juliana Ramírez",
-          tipo: "sugestao",
-        },
-         {
-          createdAt: "2025-05-31T01:14:31.585000",
-          curso: "Banco de dados",
-          email: "202304437020@alunos.uniruy.edu.br",
-          id: "683a57f79edde86cfe9af446",
-          mensagem: "Gostei Muito da plataforma, Parabéns Aos envolvidos no projeto Icaro!",
-          nome: "María Juliana Ramírez",
-          tipo: "erro",
-        },
-        {
-          createdAt: "2025-05-31T01:14:31.585000",
-          curso: "Banco de dados",
-          email: "202304437020@alunos.uniruy.edu.br",
-          id: "683a57f79edde86cfe9af446",
-          mensagem: "Gostei Muito da plataforma, Parabéns Aos envolvidos no projeto Icaro!",
-          nome: "María Juliana Ramírez",
-          tipo: "outro",
-        },
-        {
-          createdAt: "2025-05-31T01:14:31.585000",
-          curso: "Banco de dados",
-          email: "202304437020@alunos.uniruy.edu.br",
-          id: "683a57f79edde86cfe9af446",
-          mensagem: "Gostei Muito da plataforma, Parabéns Aos envolvidos no projeto Icaro!",
-          nome: "María Juliana Ramírez",
-          tipo: "sugestao",
-        },
-         {
-          createdAt: "2025-05-31T01:14:31.585000",
-          curso: "Banco de dados",
-          email: "202304437020@alunos.uniruy.edu.br",
-          id: "683a57f79edde86cfe9af446",
-          mensagem: "Gostei Muito da plataforma, Parabéns Aos envolvidos no projeto Icaro!",
-          nome: "María Juliana Ramírez",
-          tipo: "erro",
-        },
-        {
-          createdAt: "2025-05-31T01:14:31.585000",
-          curso: "Banco de dados",
-          email: "202304437020@alunos.uniruy.edu.br",
-          id: "683a57f79edde86cfe9af446",
-          mensagem: "Gostei Muito da plataforma, Parabéns Aos envolvidos no projeto Icaro!",
-          nome: "María Juliana Ramírez",
-          tipo: "outro",
-        },
-        {
-          createdAt: "2025-05-31T01:14:31.585000",
-          curso: "Banco de dados",
-          email: "202304437020@alunos.uniruy.edu.br",
-          id: "683a57f79edde86cfe9af446",
-          mensagem: "Gostei Muito da plataforma, Parabéns Aos envolvidos no projeto Icaro!",
-          nome: "María Juliana Ramírez",
-          tipo: "sugestao",
-        },
-      ]);
+     setFeedbacks(res.feedbacks)
     } catch (error) {
       console.error("Erro ao carregar feedbacks", error);
     }
@@ -197,7 +114,8 @@ export const Feadbecks = () => {
                               <CardTitle className="text-base">
                                 {fb.nome.split(" ")[0] + " " + fb.nome.split(" ")[1]}
                               </CardTitle>
-                              <p className="text-sm text-muted-foreground truncate">{formatDate(fb?.createdAt!)}</p>
+                              <p className="text-sm text-muted-foreground truncate">
+                              {formatDate(fb?.createdAt!)}</p>
                             </div>
                             <p className="text-sm text-muted-foreground">{fb.email}</p>
                           </div>

@@ -46,11 +46,11 @@ export const data = {
     },
     {
       title: "Administração",
-      url: "/admin",
+      url: "/uniruy",
       icon: ClipboardList,
       items: [
-        { title: "Usuários", url: "/admin/usuarios" },
-        { title: "Estágios", url: "/admin/estagios" },
+        { title: "Usuários", url: "/uniruy/usuarios" },
+        { title: "Estágios", url: "/uniruy/estagios" },
         { title: "Feadbacks", url: "/uniruy/feedbacks" },
       ],
     },
