@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import { useNavigate } from "react-router";
 import type { UserData } from "@/types/userTypes";
 import { useUser } from "@/hooks/useUser";
+import { getAuth } from "@/api/authApi";
 
 export const UserContext = createContext({
   user: null as UserData | null,
@@ -13,23 +14,34 @@ export const UserContext = createContext({
   handleUpdate: () => {},
   viewModal: false,
   handleViewModal: () => {},
+  serverDown: false,
 });
 
 export const UserProvider = ({ children }: any) => {
   const [user, setUser] = useState<UserData | null>(null);
+
   const [viewModal, setViewModal] = useState(false);
   const [loading, setLoading] = useState(true);
   const [update, setUpdate] = useState(false);
   const { getUserInfo } = useUser();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const token = Cookies.get("jwtToken");
-    if (token) {
-      fetchUserData();
+  const [serverDown, setServerDown] = useState(false);
+  const init = async () => {
+    const isUp = await checkServer();
+    if (isUp) {
+      const token = Cookies.get("jwtToken");
+      if (token) {
+        fetchUserData();
+      } else {
+        setLoading(false);
+      }
     } else {
       setLoading(false);
     }
+  };
+
+  useEffect(() => {
+    init();
   }, [update]);
 
   const fetchUserData = async () => {
@@ -53,6 +65,25 @@ export const UserProvider = ({ children }: any) => {
     }
   };
 
+  const checkServer = async (): Promise<boolean> => {
+    try {
+      const res = await getAuth();
+      if (res) {
+        setServerDown(false);
+        navigate("/");
+      }
+      return true;
+    } catch (error: any) {
+      if (error.code === "ERR_NETWORK") {
+        if (!serverDown) {
+          setServerDown(true);
+
+          navigate("/503");
+        }
+      }
+      return false;
+    }
+  };
   const login = async (token: string, role: string) => {
     Cookies.set("jwtToken", token, { expires: 1, sameSite: "strict" });
     fetchUserData();
@@ -71,7 +102,9 @@ export const UserProvider = ({ children }: any) => {
 
   const handleUpdate = () => setUpdate(!update);
   return (
-    <UserContext.Provider value={{ user, login, logout, loading, update, handleUpdate, viewModal, handleViewModal }}>
+    <UserContext.Provider
+      value={{ user, login, logout, loading, update, handleUpdate, viewModal, handleViewModal, serverDown }}
+    >
       {children}
     </UserContext.Provider>
   );

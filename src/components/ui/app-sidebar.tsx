@@ -18,16 +18,16 @@ import { AdminOverview } from "../Faculty/AdminOverview";
 export function AppSidebar({ sidebarType = "student", ...props }: React.ComponentProps<typeof Sidebar>) {
   const { user } = useUserContext();
   const { open } = useSidebar();
-  const dataNav = [...(sidebarType === "student" ? data.student : data.uniruy), ...data.navMain,];
+  const dataNav = [...(sidebarType === "student" ? data.student : data.uniruy), ...data.navMain];
   return (
     <Sidebar collapsible="icon" variant="sidebar" {...props}>
       <SidebarHeader>
         <Link to={"/"}>
-          <div className="flex justify-center items-center mb-4">
+          <div className="flex justify-center items-center mb-4  mx-auto ">
             <img
               src="https://res.cloudinary.com/dg9hqvlas/image/upload/v1744306739/logo_dhl8vb.png"
               alt="Logo Wyden"
-              className="w-24 border-b border-neutral90/60 dark:border-neutral10/60  object-contain mx-auto hover:translate-y-[-2px] hover:shadow-lg transition-all cursor-pointer"
+              className="w-26 border-b   object-cover mx-auto hover:translate-y-[-2px]  transition-all cursor-pointer"
             />
           </div>
         </Link>

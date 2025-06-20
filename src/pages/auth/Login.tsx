@@ -35,18 +35,28 @@ export default function Login() {
       </div>
       <ScrollArea className="flex-1 lg:flex-none w-full lg:w-[50%] max-h-[90%] relative lg:absolute lg:left-0 flex justify-center overflow-x-hidden">
         <div className="flex flex-col items-center justify-between bg-white">
-          <img src="/logo.svg" alt="Wyden Logo" className="w-32 mb-4 self-start absolute left-0 " />
+          <img
+            src="/logo.svg"
+            alt="Wyden Logo"
+            className="w-1/5 mb-4 self-start absolute left-0 "
+            onError={(e) => {
+              (e.target as HTMLImageElement).style.display = "none";
+            }}
+          />
           <div className="flex flex-col items-start justify-center flex-1 w-full max-w-md relative md:bottom-[4.5vh] bottom-[10vh] in">
             <img
               src="https://res.cloudinary.com/dg9hqvlas/image/upload/v1744306739/logo_dhl8vb.png"
               alt="Project Logo"
-              className="w-28 lg:w-44 self-center top-0 border-b border-gray-400"
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = "none";
+              }}
+              className="w-28 lg:w-1/4 self-center top-0 border-b border-gray-400"
             />
             <div className="flex flex-col items-center font-secundaria w-full">
-              <h1 className="text-xl md:text-[1.5rem] font-principal font-bold text-center text-gray-900 mt-1">
+              <h1 className="text-xl md:text-[1.3rem] font-principal font-bold text-center text-gray-900 mt-1">
                 Encontre seu caminho profissional e inspire-se a alcançar novos horizontes
               </h1>
-              <p className="text-center text-base md:text-lg text-gray-600 mt-3 mb-6 font-secundaria flex flex-col ">
+              <p className="text-center text-base md:text-[1rem] text-gray-600 mt-3 mb-6 font-secundaria flex flex-col ">
                 <span>Seu e-mail de acesso segue o padrão:</span>
                 <span className="font-semibold">"suamatricula"@alunos."suainstituicao".edu.br</span>
               </p>

@@ -4,6 +4,7 @@ import { useUserContext } from "./hooks/useUserContext";
 import { RoleBasedRoute } from "./roleBasedRoute";
 import type { UserRole } from "./types/userTypes";
 import type { JSX } from "react";
+import { ServerMaintenance } from "./pages/errors/503";
 
 const Login = lazy(() => import("./pages/auth/Login"));
 const Students = lazy(() => import("./pages/students/Students"));
@@ -13,7 +14,7 @@ const LoadingPage = lazy(() => import("./pages/loading/LoadignPage"));
 const NotFoundPage = lazy(() => import("./pages/errors/404"));
 
 export const AppRoutes = () => {
-  const { user, loading } = useUserContext();
+  const { user, loading, serverDown } = useUserContext();
 
   const privateRoutes: { path: string; render: () => JSX.Element; role: UserRole }[] = [
     { path: "/dashboard", render: () => <Students />, role: "student" },
@@ -35,7 +36,9 @@ export const AppRoutes = () => {
         <Route
           path="/"
           element={
-            user ? (
+            serverDown ? (
+              <ServerMaintenance />
+            ) : user ? (
               user.role === "student" ? (
                 <Navigate to="/dashboard" replace />
               ) : (
@@ -46,7 +49,7 @@ export const AppRoutes = () => {
             )
           }
         />
-
+        <Route path="/503" element={<ServerMaintenance />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
 
         {privateRoutes.map(({ path, render, role }) => (

@@ -8,6 +8,8 @@ const userApi = axios.create({
   withCredentials: true,
 });
 
+
+
 export const getUser = async (): Promise<UserData> => {
   try {
     handleToken(userApi);
